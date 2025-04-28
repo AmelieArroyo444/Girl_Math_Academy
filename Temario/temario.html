@@ -6,27 +6,8 @@
   <title>Temario | Chicas en las Matemáticas</title>
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<script>
-  const temaGroups = document.querySelectorAll('.tema-group');
-
-  const isInView = (element) => {
-    const rect = element.getBoundingClientRect();
-    return rect.top < window.innerHeight && rect.bottom >= 0;
-  };
-
-  const handleScroll = () => {
-    temaGroups.forEach(group => {
-      if (isInView(group)) {
-        group.classList.add('visible');
-      }
-    });
-  };
-
-  window.addEventListener('scroll', handleScroll);
-  handleScroll();
-</script>
 
 <body>
   <nav class="menu">
@@ -39,6 +20,7 @@
       </ul>
     </div>
   </nav>
+
   <main class="temario-section">
     <h1>📚 Aquí podrás aprender:</h1>
 
@@ -164,5 +146,26 @@
     </div>
 
   </main>
+
+  <script>
+    const temaGroups = document.querySelectorAll('.tema-group');
+
+    const isInView = (element) => {
+      const rect = element.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom >= 0;
+    };
+
+    const handleScroll = () => {
+      temaGroups.forEach(group => {
+        if (isInView(group)) {
+          group.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  </script>
+
 </body>
 </html>
