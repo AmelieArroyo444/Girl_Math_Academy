@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chicas en las Matemáticas</title>
+  <!-- Fuente Cal Sans y Raleway -->
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Íconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Vincular tu archivo de estilos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Menú de Navegación -->
+  <nav class="menu">
+    <div class="menu-container">
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="temario.html"><i class="fas fa-book-open"></i> Temario</a></li>
+        <li><a href="redes.html"><i class="fas fa-heart"></i> Redes</a></li>
+        <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
 /* Reset básico */
 * {
   margin: 0;
