@@ -38,7 +38,7 @@ body {
 }
 
 .menu a {
-  color: #bd0064 !important;  /* Color de enlace cambiado a #bd0064 */
+  color: #fff8fc !important;  /* Color de enlace cambiado a #bd0064 */
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1em;
@@ -102,7 +102,7 @@ body {
   margin-bottom: 30px;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  letter-spacing: 2px;  /* Espacio entre letras */
+  letter-spacing: 3px;  /* Espacio entre letras */
 }
 
 .tema-group {
@@ -142,7 +142,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  letter-spacing: 1.5px;  /* Espacio entre letras */
+  letter-spacing: 2px;  /* Espacio entre letras */
 }
 
 .subtema ul {
