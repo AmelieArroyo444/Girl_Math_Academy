@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chicas en las Matemáticas</title>
   <!-- Fuente Cal Sans y Raleway -->
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -19,6 +20,7 @@
       line-height: 1.7;
       border-radius: 16px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      padding-top: 100px; /* Espacio para el menú fijo */
     }
     h1 {
       font-family: 'Cal Sans', sans-serif;
@@ -32,6 +34,70 @@
       margin-bottom: 1.4em;
       font-size: 1em;
     }
+    /* ---- Estilos del Menú ---- */
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      padding: 15px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      text-align: center;
+    }
+    .menu ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 20px;
+    }
+    .menu li {
+      margin: 0;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Cal Sans', sans-serif;
+      font-size: 20px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .menu a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+    .menu i {
+      margin-right: 8px;
+    }
+    /* Estilos para móviles */
+    @media (max-width: 768px) {
+      .menu ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      body {
+        padding-top: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Menú de Navegación -->
+  <nav class="menu">
+    <ul>
+      <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+      <li><a href="#temario"><i class="fas fa-book-open"></i> Temario</a></li>
+      <li><a href="#redes"><i class="fas fa-heart"></i> Redes</a></li>
+      <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+    </ul>
+  </nav>
+  <!-- Contenido Principal -->
+
   <h1>🎀 BIENVENIDAS 🎀</h1>
 
   <p>¡Chicas, este es el momento perfecto para adentrarse en el fascinante mundo de las matemáticas! 🌟📐💓</p>
@@ -41,31 +107,8 @@
   <p>Estos conocimientos no solo forman la base de modelos científicos poderosos, sino que también nos permiten crear cambios reales en áreas clave como la salud mental, la educación y las políticas públicas. 💖💡🧠</p>
   <p>Imagina diseñar soluciones que puedan prever tendencias de consumo, influir en redes sociales o incluso desarrollar nuevas tecnologías. Todo esto es posible gracias a las habilidades que estás a punto de dominar. Las matemáticas están en todas partes, ¡y tú puedes ser parte de esta transformación! 🌸💫📊✨</p>
   <p>No tengas miedo de sumergirte en este universo lleno de posibilidades. ¡El futuro está en nuestras manos! 🌟💖🚀</p>
-
-  <!-- SECCIONES NUEVAS -->
-  <div class="secciones">
-    <!-- Temario -->
-    <section class="temario">
-      <h2>Temario</h2>
-      <ul>
-        <li>Números Reales</li>
-        <li>Álgebra Lineal</li>
-        <li>Geometría Analítica</li>
-        <li>Estadística Básica</li>
-        <li>Introducción a Python</li>
-      </ul>
-    </section>
-
-    <!-- Redes Sociales -->
-    <section class="redes">
-      <h2>Sígueme</h2>
-      <ul>
-        <li><a href="https://twitter.com/tu_usuario" target="_blank"><i class="fab fa-twitter"></i>Twitter</a></li>
-        <li><a href="https://instagram.com/tu_usuario" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
-        <li><a href="https://tiktok.com/@tu_usuario" target="_blank"><i class="fab fa-tiktok"></i>TikTok</a></li>
-        <li><a href="mailto:tu@email.com"><i class="fas fa-envelope"></i>Email</a></li>
-      </ul>
-    </section>
-  </div>
+  </section>
 </body>
 </html>
+
+
