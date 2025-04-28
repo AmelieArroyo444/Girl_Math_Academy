@@ -5,11 +5,13 @@
   <title>Chicas en las Matemáticas</title>
   <!-- Fuente Cal Sans y Raleway -->
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Íconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       font-family: 'Raleway', sans-serif;
-      font-size: 24px;  /* Tamaño de letra reducido */
-      background-color: #ffffff;  /* Fondo blanco */
+      font-size: 24px;
+      background-color: #ffffff;
       color: #333;
       max-width: 800px;
       margin: 40px auto;
@@ -19,16 +21,54 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
     h1 {
-      font-family: 'Cal Sans', sans-serif; /* Usar la fuente Cal Sans */
+      font-family: 'Cal Sans', sans-serif;
       text-align: center;
       font-size: 70px;
-      color: #000000;  /* Color negro */
+      color: #000000;
       margin-bottom: 20px;
-      letter-spacing: 4px; /* Espaciado entre letras */
+      letter-spacing: 4px;
     }
     p {
       margin-bottom: 1.4em;
       font-size: 1em;
+    }
+    /* Nuevos estilos para las secciones */
+    .secciones {
+      display: flex;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .temario, .redes {
+      flex: 1;
+      background: rgba(255, 230, 240, 0.3); /* Fondo rosado translúcido */
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #ffd6e7;
+    }
+    .temario h2, .redes h2 {
+      font-family: 'Cal Sans', sans-serif;
+      text-align: center;
+      color: #d63384; /* Rosado fuerte */
+      margin-top: 0;
+    }
+    .temario ul, .redes ul {
+      padding-left: 20px;
+    }
+    .temario li, .redes li {
+      margin-bottom: 10px;
+    }
+    .redes a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .redes a:hover {
+      color: #d63384;
+    }
+    .redes .fa {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
     }
   </style>
 </head>
@@ -36,18 +76,37 @@
   <h1>🎀 BIENVENIDAS 🎀</h1>
 
   <p>¡Chicas, este es el momento perfecto para adentrarse en el fascinante mundo de las matemáticas! 🌟📐💓</p>
-
   <p>En una era donde los datos y la tecnología están transformando todo a nuestro alrededor, las herramientas que nos brindan las matemáticas, la estadística, la computación y la programación son esenciales para entender lo que sucede a nuestro alrededor. 🤩🪐</p>
-
   <p>Sabemos que las matemáticas a veces pueden parecer complicadas, ¡pero no te preocupes! Con los ejemplos de esta página, todo se vuelve mucho más fácil de entender. 📚✨</p>
-
   <p>¡Vas a ver cómo cada concepto se conecta y te va a sorprender lo lejos que puedes llegar!</p>
-
   <p>Estos conocimientos no solo forman la base de modelos científicos poderosos, sino que también nos permiten crear cambios reales en áreas clave como la salud mental, la educación y las políticas públicas. 💖💡🧠</p>
-
   <p>Imagina diseñar soluciones que puedan prever tendencias de consumo, influir en redes sociales o incluso desarrollar nuevas tecnologías. Todo esto es posible gracias a las habilidades que estás a punto de dominar. Las matemáticas están en todas partes, ¡y tú puedes ser parte de esta transformación! 🌸💫📊✨</p>
-
   <p>No tengas miedo de sumergirte en este universo lleno de posibilidades. ¡El futuro está en nuestras manos! 🌟💖🚀</p>
 
+  <!-- SECCIONES NUEVAS -->
+  <div class="secciones">
+    <!-- Temario -->
+    <section class="temario">
+      <h2>Temario</h2>
+      <ul>
+        <li>Números Reales</li>
+        <li>Álgebra Lineal</li>
+        <li>Geometría Analítica</li>
+        <li>Estadística Básica</li>
+        <li>Introducción a Python</li>
+      </ul>
+    </section>
+
+    <!-- Redes Sociales -->
+    <section class="redes">
+      <h2>Sígueme</h2>
+      <ul>
+        <li><a href="https://twitter.com/tu_usuario" target="_blank"><i class="fab fa-twitter"></i>Twitter</a></li>
+        <li><a href="https://instagram.com/tu_usuario" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
+        <li><a href="https://tiktok.com/@tu_usuario" target="_blank"><i class="fab fa-tiktok"></i>TikTok</a></li>
+        <li><a href="mailto:tu@email.com"><i class="fas fa-envelope"></i>Email</a></li>
+      </ul>
+    </section>
+  </div>
 </body>
 </html>
