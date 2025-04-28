@@ -8,6 +8,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css"> <!-- Aquí se supone que tendrás tu CSS separado -->
 </head>
+<script>
+  // Detectar cuando el tema entra en la vista
+  const temaGroups = document.querySelectorAll('.tema-group');
+
+  const isInView = (element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom >= 0;
+  };
+
+  const handleScroll = () => {
+    temaGroups.forEach(group => {
+      if (isInView(group)) {
+        group.classList.add('visible');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Asegurarse de que la animación se ejecute al cargar la página
+</script>
+
 <body>
   <!-- Menú de Navegación -->
   <nav class="menu">
