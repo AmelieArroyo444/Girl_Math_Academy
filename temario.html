@@ -4,30 +4,467 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temario | Chicas en las Matemáticas</title>
-  <!-- Mismas fuentes y estilos que index.html -->
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css"> <!-- Archivo CSS compartido -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      font-size: 20px;
+      background-color: #ffffff;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      line-height: 1.7;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      padding-top: 100px;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cal Sans', sans-serif;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3.5rem;
+      letter-spacing: 4px;
+      color: #d63384;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #ff6b9e;
+      border-bottom: 2px solid #fad0c4;
+      padding-bottom: 10px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      color: #ff9a9e;
+      margin-top: 30px;
+    }
+
+    ul {
+      margin-bottom: 1.5rem;
+      padding-left: 40px;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      padding: 15px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      z-index: 1000;
+      text-align: center;
+    }
+
+    .menu-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .menu ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding-left: 0;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Cal Sans', sans-serif;
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .menu a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .temario-section {
+      background-color: rgba(255, 250, 250, 0.9);
+      border: 1px solid #fad0c4;
+      padding: 30px;
+      margin-top: 30px;
+      border-radius: 15px;
+    }
+
+    .tema-group {
+      margin-bottom: 40px;
+      background-color: rgba(255, 240, 245, 0.7);
+      padding: 25px;
+      border-radius: 10px;
+      border-left: 5px solid #ff9a9e;
+    }
+
+    .subtema {
+      margin-left: 20px;
+      padding-left: 15px;
+      border-left: 2px dotted #ff9a9e;
+      margin-bottom: 25px;
+    }
+
+    .subtema h3 {
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 18px;
+        padding: 20px;
+        padding-top: 120px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      .menu ul {
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="menu">
-    <!-- Mismo menú que index.html -->
     <div class="menu-container">
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-        <li><a href="temario.html"><i class="fas fa-book-open"></i> Temario</a></li>
+        <li><a href="temario.html" style="background: rgba(255,255,255,0.3);"><i class="fas fa-book-open"></i> Temario</a></li>
         <li><a href="redes.html"><i class="fas fa-heart"></i> Redes</a></li>
         <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
       </ul>
     </div>
   </nav>
 
-  <main>
-    <!-- Contenido completo del temario aquí -->
-    <section class="temario-section">
-      <h1>📚 Temario Completo</h1>
-      <!-- ... (todo el contenido del temario que proporcionaste) ... -->
-    </section>
+  <main class="temario-section">
+    <h1>📚 Temario Completo</h1>
+
+    <!-- Matemáticas Fundamentales -->
+    <div class="tema-group">
+      <h2>🧮 Matemáticas Fundamentales</h2>
+      
+      <div class="subtema">
+        <h3>Aritmética básica</h3>
+        <ul>
+          <li>Operaciones con números enteros, fracciones y decimales</li>
+          <li>Propiedades de los números (conmutativa, asociativa, distributiva)</li>
+          <li>Orden de operaciones (PEMDAS/BODMAS)</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Números reales y complejos</h3>
+        <ul>
+          <li>Clasificación de números (naturales, enteros, racionales, irracionales)</li>
+          <li>Introducción a los números complejos y sus operaciones</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Propiedades de las potencias y raíces</h3>
+        <ul>
+          <li>Leyes de los exponentes</li>
+          <li>Simplificación de expresiones con radicales</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Álgebra Básica -->
+    <div class="tema-group">
+      <h2>📐 Álgebra Básica</h2>
+      
+      <div class="subtema">
+        <h3>Expresiones algebraicas</h3>
+        <ul>
+          <li>Términos semejantes y simplificación</li>
+          <li>Operaciones con polinomios (suma, resta, multiplicación, división)</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Ecuaciones lineales</h3>
+        <ul>
+          <li>Resolución de ecuaciones de primer grado</li>
+          <li>Problemas de aplicación con ecuaciones lineales</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Sistemas de ecuaciones lineales</h3>
+        <ul>
+          <li>Métodos de solución (sustitución, eliminación, igualación)</li>
+          <li>Aplicaciones prácticas</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Factorización</h3>
+        <ul>
+          <li>Factor común</li>
+          <li>Diferencia de cuadrados</li>
+          <li>Trinomios cuadrados perfectos</li>
+          <li>Trinomios de la forma ax² + bx + c</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Ecuaciones cuadráticas</h3>
+        <ul>
+          <li>Fórmula general</li>
+          <li>Completar el cuadrado</li>
+          <li>Gráficas de funciones cuadráticas</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Inecuaciones</h3>
+        <ul>
+          <li>Resolución de inecuaciones lineales y cuadráticas</li>
+          <li>Representación gráfica de soluciones</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Funciones algebraicas</h3>
+        <ul>
+          <li>Dominio y rango</li>
+          <li>Funciones lineales, cuadráticas y polinómicas</li>
+          <li>Transformaciones de funciones</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Logaritmos y exponenciales</h3>
+        <ul>
+          <li>Propiedades de los logaritmos</li>
+          <li>Ecuaciones exponenciales y logarítmicas</li>
+          <li>Aplicaciones en crecimiento y decaimiento</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Geometría y Trigonometría -->
+    <div class="tema-group">
+      <h2>📏 Geometría y Trigonometría</h2>
+      
+      <div class="subtema">
+        <h3>Geometría analítica</h3>
+        <ul>
+          <li>Coordenadas cartesianas</li>
+          <li>Distancia entre dos puntos</li>
+          <li>Pendiente y ecuación de la recta</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Funciones trigonométricas</h3>
+        <ul>
+          <li>Seno, coseno y tangente</li>
+          <li>Identidades trigonométricas básicas</li>
+          <li>Resolución de triángulos rectángulos y oblicuángulos</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Círculo unitario</h3>
+        <ul>
+          <li>Relación con las funciones trigonométricas</li>
+          <li>Gráficas de funciones seno y coseno</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lógica Matemática -->
+    <div class="tema-group">
+      <h2>🔍 Introducción a la Lógica Matemática</h2>
+      
+      <div class="subtema">
+        <h3>Proposiciones y conectores lógicos</h3>
+        <ul>
+          <li>Conjunción, disyunción, negación, implicación y equivalencia</li>
+          <li>Tablas de verdad</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Cuantificadores</h3>
+        <ul>
+          <li>Universal y existencial</li>
+          <li>Aplicaciones en demostraciones matemáticas</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Métodos de demostración</h3>
+        <ul>
+          <li>Demostración directa</li>
+          <li>Reducción al absurdo</li>
+          <li>Inducción matemática</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Estadística y Probabilidad -->
+    <div class="tema-group">
+      <h2>📊 Estadística y Probabilidad Básica</h2>
+      
+      <div class="subtema">
+        <h3>Estadística descriptiva</h3>
+        <ul>
+          <li>Medidas de tendencia central (media, mediana, moda)</li>
+          <li>Medidas de dispersión (rango, varianza, desviación estándar)</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Probabilidad básica</h3>
+        <ul>
+          <li>Espacio muestral y eventos</li>
+          <li>Regla de Laplace</li>
+          <li>Probabilidad condicional</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Distribuciones de probabilidad</h3>
+        <ul>
+          <li>Distribución binomial</li>
+          <li>Distribución normal</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Matrices -->
+    <div class="tema-group">
+      <h2>🔢 Introducción a Matrices</h2>
+      
+      <div class="subtema">
+        <h3>Operaciones con matrices</h3>
+        <ul>
+          <li>Suma, resta y multiplicación</li>
+          <li>Matriz transpuesta y matriz inversa</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Determinantes</h3>
+        <ul>
+          <li>Cálculo de determinantes</li>
+          <li>Aplicaciones en sistemas de ecuaciones</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Sistemas de ecuaciones lineales con matrices</h3>
+        <ul>
+          <li>Método de Gauss-Jordan</li>
+          <li>Aplicaciones en ingeniería y ciencias</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Aplicaciones Prácticas -->
+    <div class="tema-group">
+      <h2>💻 Aplicaciones Prácticas</h2>
+      
+      <div class="subtema">
+        <h3>Modelos computacionales</h3>
+        <ul>
+          <li>Uso de matrices en gráficos por computadora</li>
+          <li>Aplicaciones en inteligencia artificial</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Redes neuronales</h3>
+        <ul>
+          <li>Introducción a los conceptos básicos</li>
+          <li>Uso de álgebra lineal en redes neuronales</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Optimización</h3>
+        <ul>
+          <li>Problemas de maximización y minimización</li>
+          <li>Aplicaciones en economía y logística</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Análisis de datos</h3>
+        <ul>
+          <li>Uso de matrices en el análisis de grandes volúmenes de datos</li>
+          <li>Aplicaciones en machine learning</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Temas Avanzados -->
+    <div class="tema-group">
+      <h2>🚀 Temas Avanzados</h2>
+      
+      <div class="subtema">
+        <h3>Álgebra abstracta</h3>
+        <ul>
+          <li>Grupos, anillos y campos</li>
+          <li>Teoría de números</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Cálculo</h3>
+        <ul>
+          <li>Límites y derivadas</li>
+          <li>Integrales y aplicaciones</li>
+        </ul>
+      </div>
+      
+      <div class="subtema">
+        <h3>Geometría avanzada</h3>
+        <ul>
+          <li>Vectores en el espacio</li>
+          <li>Planos y superficies</li>
+        </ul>
+      </div>
+    </div>
   </main>
 </body>
 </html>
