@@ -38,7 +38,7 @@ body {
 }
 
 .menu a {
-  color: #bd0064;  /* Color de enlace cambiado a #bd0064 */
+  color: #bd0064 !important;  /* Color de enlace cambiado a #bd0064 */
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1em;
