@@ -1,159 +1,148 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chicas en las Matemáticas</title>
-  <!-- Fuente Cal Sans y Raleway -->
-  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Íconos de Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Vincular tu archivo de estilos -->
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <!-- Menú de Navegación -->
-  <nav class="menu">
-    <div class="menu-container">
-      <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-        <li><a href="temario.html"><i class="fas fa-book-open"></i> Temario</a></li>
-        <li><a href="redes.html"><i class="fas fa-heart"></i> Redes</a></li>
-        <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Estilos generales */
 body {
   font-family: 'Raleway', sans-serif;
-  font-size: 20px;
-  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
   color: #333;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 30px;
-  line-height: 1.7;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  padding-top: 100px;
-  position: relative;
-  min-height: 100vh;
 }
 
-h1 {
-  font-family: 'Cal Sans', sans-serif;
-  text-align: center;
-  font-size: 3.5rem;
-  color: #000000;
-  margin-bottom: 30px;
-  letter-spacing: 4px;
-  line-height: 1.2;
-}
-
-p {
-  margin-bottom: 1.5rem;
-  font-size: 1em;
-  text-align: justify;
-}
-
-/* ---- Estilos del Menú ---- */
+/* Menú de navegación */
 .menu {
-  position: fixed;
+  background-color: #6a11cb;
+  background-image: linear-gradient(315deg, #6a11cb 0%, #2575fc 74%);
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(150deg, #ff4eac 0%, #ffcee8 100%);
-  padding: 15px 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   z-index: 1000;
-  text-align: center;
 }
 
 .menu-container {
-  max-width: 800px;
+  width: 90%;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .menu ul {
+  list-style: none;
   display: flex;
   justify-content: center;
-  list-style: none;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.menu li {
+  padding: 0;
   margin: 0;
 }
 
+.menu li {
+  margin: 0 15px;
+}
+
 .menu a {
-  color: white;
+  color: #fff;
   text-decoration: none;
-  font-family: 'Cal Sans', sans-serif;
-  font-size: 1.1rem;
-  padding: 10px 20px;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: background 0.3s;
 }
 
 .menu a:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-3px);
+  background: rgba(255,255,255,0.3);
 }
 
-.menu i {
-  margin-right: 8px;
-  font-size: 1.1rem;
+/* Sección de Temario */
+.temario-section {
+  width: 90%;
+  max-width: 1000px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Sección principal */
-.welcome-section {
+.temario-section h1 {
+  text-align: center;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 2.5em;
   margin-bottom: 40px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: rgba(255, 250, 250, 0.7);
+  color: #6a11cb;
 }
 
-/* Estilos para móviles */
+/* Agrupaciones de temas */
+.tema-group {
+  margin-bottom: 50px;
+}
+
+.tema-group h2 {
+  color: #2575fc;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Subtemas */
+.subtema {
+  margin-bottom: 30px;
+}
+
+.subtema h3 {
+  font-size: 1.5em;
+  color: #6a11cb;
+  margin-bottom: 10px;
+}
+
+.subtema ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.subtema li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* Mensaje final */
+.tema-group p {
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 20px;
+  color: #444;
+}
+
+/* Responsive: Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
-  body {
-    font-size: 18px;
-    padding: 20px;
-    padding-top: 120px;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  .menu ul {
-    flex-direction: row;
-    gap: 10px;
-  }
-  
-  .menu a {
-    padding: 8px 15px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding-top: 160px;
-  }
-  
   .menu ul {
     flex-direction: column;
-    gap: 8px;
+    align-items: center;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .temario-section {
+    padding: 20px;
+  }
+
+  .temario-section h1 {
+    font-size: 2em;
+  }
+
+  .tema-group h2 {
+    font-size: 1.5em;
+  }
+
+  .subtema h3 {
+    font-size: 1.2em;
   }
 }
 
+/* Responsive extra: para celulares muy pequeños */
+@media (max-width: 480px) {
+  .menu a {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .temario-section {
+    margin: 20px 10px;
+  }
+}
