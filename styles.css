@@ -78,6 +78,36 @@ body {
   margin-bottom: 20px;
 }
 
+/* Sección de temario */
+.temario-section {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.temario-section h2 {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 2.5em;
+  color: #ff6f91;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.temario-section ul {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+
+.temario-section li {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
 /* Responsive para tablets */
 @media (max-width: 768px) {
   .menu ul {
@@ -99,6 +129,18 @@ body {
   .welcome-section p {
     font-size: 1.1em;
   }
+
+  .temario-section {
+    padding: 30px 20px;
+  }
+
+  .temario-section h2 {
+    font-size: 2em;
+  }
+
+  .temario-section li {
+    font-size: 1.1em;
+  }
 }
 
 /* Responsive extra para celulares */
@@ -110,5 +152,9 @@ body {
 
   .welcome-section {
     margin: 40px 10px;
+  }
+
+  .temario-section {
+    margin: 30px 10px;
   }
 }
