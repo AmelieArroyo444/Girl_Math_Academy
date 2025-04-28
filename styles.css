@@ -38,7 +38,7 @@ body {
 }
 
 .menu a {
-  color: #fff8fc !important;  /* Color de enlace cambiado a #bd0064 */
+  color: #fff8fc !important;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1em;
@@ -71,10 +71,10 @@ body {
 .welcome-section h1 {
   font-family: 'Cal Sans', sans-serif;
   font-size: 2.8em;
-  color: #000;  /* Título en negro */
+  color: #000;
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  letter-spacing: 2px;  /* Espacio entre letras */
+  letter-spacing: 2px;
 }
 
 .welcome-section p {
@@ -98,11 +98,11 @@ body {
 .temario-section h1 {
   font-family: 'Cal Sans', sans-serif;
   font-size: 2.5em;
-  color: #000;  /* Título en negro */
+  color: #000;
   margin-bottom: 30px;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  letter-spacing: 3px;  /* Espacio entre letras */
+  letter-spacing: 3px;
 }
 
 .tema-group {
@@ -121,12 +121,12 @@ body {
 
 .tema-group h2 {
   font-family: 'Cal Sans', sans-serif;
-  color: #ff0a8c;  /* Subtítulo en rosa */
+  color: #ff0a8c;
   margin-top: 0;
   display: flex;
   align-items: center;
   gap: 10px;
-  letter-spacing: 1.5px;  /* Espacio entre letras */
+  letter-spacing: 1.5px;
 }
 
 .subtema {
@@ -136,13 +136,13 @@ body {
 }
 
 .subtema h3 {
-  color: #ff0a8c;  /* Subtítulo en rosa */
+  color: #ff0a8c;
   font-size: 1.3rem;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 8px;
-  letter-spacing: 2px;  /* Espacio entre letras */
+  letter-spacing: 2px;
 }
 
 .subtema ul {
@@ -158,7 +158,7 @@ body {
   position: relative;
 }
 
-.subtema li:before {
+.subtema li::before {
   content: "→";
   color: #ff0a8c;
   position: absolute;
@@ -167,8 +167,14 @@ body {
 
 /* Animaciones */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive para tablets */
@@ -181,19 +187,22 @@ body {
     margin: 10px 0;
   }
 
-  .welcome-section, .temario-section {
+  .welcome-section,
+  .temario-section {
     padding: 30px 20px;
   }
 
-  .welcome-section h1, .temario-section h1 {
+  .welcome-section h1,
+  .temario-section h1 {
     font-size: 2.2em;
   }
 
-  .welcome-section p, .temario-section li {
+  .welcome-section p,
+  .temario-section li {
     font-size: 1.1em;
   }
 
-  .temario-section h2 {
+  .tema-group h2 {
     font-size: 1.8em;
   }
 }
@@ -205,7 +214,8 @@ body {
     padding: 10px 20px;
   }
 
-  .welcome-section, .temario-section {
+  .welcome-section,
+  .temario-section {
     margin: 30px 10px;
     padding: 20px 15px;
   }
