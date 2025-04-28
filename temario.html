@@ -4,15 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temario | Chicas en las Matemáticas</title>
+  <!-- Fuente Cal Sans y Raleway -->
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Íconos de Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
+    
     body {
       font-family: 'Raleway', sans-serif;
       font-size: 20px;
@@ -28,61 +31,61 @@
       position: relative;
       min-height: 100vh;
     }
-
-    h1, h2, h3 {
-      font-family: 'Cal Sans', sans-serif;
-      margin-bottom: 30px;
-      line-height: 1.2;
-    }
-
+    
     h1 {
+      font-family: 'Cal Sans', sans-serif;
       text-align: center;
       font-size: 3.5rem;
+      color: #000000;
+      margin-bottom: 30px;
       letter-spacing: 4px;
-      color: #d63384;
+      line-height: 1.2;
     }
-
+    
     h2 {
+      font-family: 'Cal Sans', sans-serif;
       font-size: 2.5rem;
-      color: #ff6b9e;
-      border-bottom: 2px solid #fad0c4;
+      color: #ff4eac;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ffcee8;
       padding-bottom: 10px;
-      margin-top: 40px;
     }
-
+    
     h3 {
+      font-family: 'Cal Sans', sans-serif;
       font-size: 1.8rem;
-      color: #ff9a9e;
-      margin-top: 30px;
+      color: #ff6b9e;
+      margin: 25px 0 15px 0;
     }
-
+    
     ul {
       margin-bottom: 1.5rem;
       padding-left: 40px;
     }
-
+    
     li {
       margin-bottom: 0.8rem;
     }
-
+    
+    /* ---- Estilos del Menú ---- */
     .menu {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      background: linear-gradient(150deg, #ff4eac 0%, #ffcee8 100%);
       padding: 15px 0;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       z-index: 1000;
       text-align: center;
     }
-
+    
     .menu-container {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 20px;
     }
-
+    
     .menu ul {
       display: flex;
       justify-content: center;
@@ -91,7 +94,11 @@
       flex-wrap: wrap;
       padding-left: 0;
     }
-
+    
+    .menu li {
+      margin: 0;
+    }
+    
     .menu a {
       color: white;
       text-decoration: none;
@@ -103,65 +110,90 @@
       display: inline-block;
       background: rgba(255, 255, 255, 0.1);
     }
-
+    
     .menu a:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: translateY(-3px);
     }
-
+    
+    .menu i {
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+    
+    /* Secciones del temario */
     .temario-section {
       background-color: rgba(255, 250, 250, 0.9);
-      border: 1px solid #fad0c4;
+      border: 1px solid #ffcee8;
       padding: 30px;
-      margin-top: 30px;
       border-radius: 15px;
+      margin-top: 20px;
     }
-
+    
     .tema-group {
       margin-bottom: 40px;
       background-color: rgba(255, 240, 245, 0.7);
       padding: 25px;
       border-radius: 10px;
-      border-left: 5px solid #ff9a9e;
+      border-left: 5px solid #ff4eac;
     }
-
+    
     .subtema {
       margin-left: 20px;
       padding-left: 15px;
-      border-left: 2px dotted #ff9a9e;
+      border-left: 2px dotted #ff6b9e;
       margin-bottom: 25px;
     }
-
-    .subtema h3 {
-      margin-bottom: 15px;
-    }
-
+    
+    /* Estilos para móviles */
     @media (max-width: 768px) {
       body {
         font-size: 18px;
         padding: 20px;
         padding-top: 120px;
       }
-
+      
       h1 {
         font-size: 2.5rem;
       }
-
+      
       h2 {
         font-size: 2rem;
       }
-
+      
       h3 {
         font-size: 1.5rem;
       }
-
+      
       .menu ul {
+        flex-direction: row;
         gap: 10px;
+      }
+      
+      .menu a {
+        padding: 8px 15px;
+        font-size: 1rem;
+      }
+      
+      ul {
+        padding-left: 30px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        padding-top: 160px;
+      }
+      
+      .menu ul {
+        flex-direction: column;
+        gap: 8px;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Menú de Navegación -->
   <nav class="menu">
     <div class="menu-container">
       <ul>
@@ -172,7 +204,6 @@
       </ul>
     </div>
   </nav>
-
   <main class="temario-section">
     <h1>📚 Temario Completo</h1>
 
