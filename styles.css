@@ -5,6 +5,7 @@ body {
   padding: 0;
   background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
   color: #444;
+  line-height: 1.6;
 }
 
 /* Menú de navegación */
@@ -46,11 +47,12 @@ body {
   gap: 8px;
   padding: 8px 15px;
   border-radius: 20px;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 
 .menu a:hover {
   background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Sección principal de bienvenida */
@@ -63,6 +65,7 @@ body {
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   text-align: center;
+  animation: fadeIn 1s ease-out;
 }
 
 .welcome-section h1 {
@@ -70,6 +73,7 @@ body {
   font-size: 2.8em;
   color: #ff6f91;
   margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .welcome-section p {
@@ -78,7 +82,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* Sección de temario */
+/* Sección de temario - MEJORAS AÑADIDAS */
 .temario-section {
   width: 90%;
   max-width: 900px;
@@ -87,25 +91,85 @@ body {
   padding: 35px;
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 1s ease-out;
 }
 
-.temario-section h2 {
+.temario-section h1 {
   font-family: 'Cal Sans', sans-serif;
   font-size: 2.5em;
   color: #ff6f91;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-.temario-section ul {
-  list-style-type: decimal;
-  padding-left: 20px;
+.tema-group {
+  background-color: rgba(255, 182, 193, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #ffb6c1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.temario-section li {
-  font-size: 1.2em;
+.tema-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tema-group h2 {
+  font-family: 'Cal Sans', sans-serif;
+  color: #d63384;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subtema {
+  margin: 1.5rem 0;
+  padding-left: 15px;
+  border-left: 2px dashed #ffb6c1;
+}
+
+.subtema h3 {
+  color: #9c27b0;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subtema ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.subtema li {
+  font-size: 1.1em;
   line-height: 1.6;
   margin-bottom: 12px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.subtema li:before {
+  content: "→";
+  color: #ff6f91;
+  position: absolute;
+  left: 10px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Efectos interactivos */
+.tema-group, .subtema {
+  transition: all 0.3s ease;
 }
 
 /* Responsive para tablets */
@@ -118,28 +182,20 @@ body {
     margin: 10px 0;
   }
 
-  .welcome-section {
+  .welcome-section, .temario-section {
     padding: 30px 20px;
   }
 
-  .welcome-section h1 {
+  .welcome-section h1, .temario-section h1 {
     font-size: 2.2em;
   }
 
-  .welcome-section p {
+  .welcome-section p, .temario-section li {
     font-size: 1.1em;
-  }
-
-  .temario-section {
-    padding: 30px 20px;
   }
 
   .temario-section h2 {
-    font-size: 2em;
-  }
-
-  .temario-section li {
-    font-size: 1.1em;
+    font-size: 1.8em;
   }
 }
 
@@ -150,11 +206,20 @@ body {
     padding: 10px 20px;
   }
 
-  .welcome-section {
-    margin: 40px 10px;
+  .welcome-section, .temario-section {
+    margin: 30px 10px;
+    padding: 20px 15px;
   }
 
-  .temario-section {
-    margin: 30px 10px;
+  .temario-section h1 {
+    font-size: 2em;
+  }
+
+  .tema-group h2 {
+    font-size: 1.5em;
+  }
+
+  .subtema h3 {
+    font-size: 1.2em;
   }
 }
