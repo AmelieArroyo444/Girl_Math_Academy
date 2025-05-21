@@ -81,7 +81,7 @@ El objetivo de este sitio es ofrecer una plataforma educativa, gratuita y bonita
 │   │   ├── redes-neuronales.html
 │   │   └── algebra-redes.html
 │   │   └── optimizacion.html
-│   └── avanzadas/
+│   └── avanzados/
 │       ├── limites-derivadas.html
 │       ├── integrales.html
 │       ├── geometria-avanzada.html
