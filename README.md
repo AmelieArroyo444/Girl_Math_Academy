@@ -1,7 +1,3 @@
-# Algebra_Rosita
-¡Chicas, este es el momento perfecto para adentrarse en el fascinante mundo de los algoritmos de la manera más girly posible! 🌟💻💓
-proyecto/
-
 # 💖 Álgebra Rosita: Matemáticas Fundamentales
 
 Bienvenides a **Álgebra Rosita**, un rinconcito digital donde las matemáticas se vuelven más dulces, claras y accesibles 🍬📐. Este proyecto fue creado con mucho cariño para ayudar a estudiantes a entender desde lo más básico hasta temas avanzados, combinando lo académico con un toque girly ✨.
@@ -20,7 +16,7 @@ El objetivo de este sitio es ofrecer una plataforma educativa, gratuita y bonita
 .
 ├── index.html                          # Página de inicio
 ├── redes.html                          # Página con redes sociales o links importantes
-├── creadora.html                       # Sobre mí (¡Hola, soy Amélie! 💌)
+├── creadora.html                       # Sobre mí 💌
 ├── styles.css                          # Hoja de estilos
 ├── README.md                           # Este archivo hermoso 💖
 ├── temario/
