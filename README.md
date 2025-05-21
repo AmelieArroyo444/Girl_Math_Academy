@@ -66,7 +66,7 @@ El objetivo de este sitio es ofrecer una plataforma educativa, gratuita y bonita
 │   │   ├── probabilidad-basica.html
 │   │   ├── probabilidad-condicional.html
 │   │   ├── distribucion-binomial.html
-│   │   └── distribucion-normal.html
+│   │   ├──  distribucion-normal.html
 │   │   └── introduccion-bayes.html
 │   ├── algebra-lineal/
 │   │   ├── operaciones-matrices.html
