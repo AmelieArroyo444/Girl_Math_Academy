@@ -16,7 +16,7 @@ El objetivo de este sitio es ofrecer una plataforma educativa, gratuita y bonita
 .
 ├── index.html                          # Página de inicio
 ├── redes.html                          # Página con redes sociales o links importantes
-├── creadora.html                       # Sobre mí 💌
+├── creadoras.html                       # Sobre nosotras 💌
 ├── styles.css                          # Hoja de estilos
 ├── README.md                           # Este archivo hermoso 💖
 ├── temario/
