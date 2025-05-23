@@ -1,6 +1,6 @@
-# 💖 Álgebra Rosita: Matemáticas Fundamentales
+# 💖 Girl Math Academy
 
-Bienvenides a **Álgebra Rosita**, un rinconcito digital donde las matemáticas se vuelven más dulces, claras y accesibles 🍬📐. Este proyecto fue creado con mucho cariño para ayudar a estudiantes a entender desde lo más básico hasta temas avanzados, combinando lo académico con un toque girly ✨.
+Bienvenides a **Girl Math Academy**, un rinconcito digital donde las matemáticas se vuelven más dulces, claras y accesibles 🍬📐. Este proyecto fue creado con mucho cariño para ayudar a estudiantes a entender desde lo más básico hasta temas avanzados, combinando lo académico con un toque girly ✨.
 
 ---
 
