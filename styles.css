@@ -4,14 +4,14 @@
 body {
   margin: 0;
   font-family: 'Raleway', sans-serif;
-  background-color: #f9f9f9;
+  background-color: #fff5f9; /* Light pink background */
   color: #333;
   line-height: 1.6;
 }
 
 /* Menú de navegación */
 .menu {
-  background-color: #ff008b; /* rojo vibrante */
+  background-color: #ff69b4; /* Hot pink */
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
@@ -56,7 +56,7 @@ body {
 
 .menu a:hover,
 .menu a.active {
-  background-color: #ffd0ea;
+  background-color: #ffb6c1; /* Light pink */
   border-radius: 5px;
 }
 
@@ -72,7 +72,7 @@ main h1 {
   font-weight: 700;
   font-size: 2.8rem;
   margin-bottom: 30px;
-  color: #f44336;
+  color: #db7093; /* Soft pink */
   text-align: center;
 }
 
@@ -90,8 +90,8 @@ main h1 {
   font-weight: 700;
   font-size: 1.8rem;
   margin-bottom: 15px;
-  color: #b71c1c;
-  border-bottom: 2px solid #f44336;
+  color: #c71585; /* Medium pink */
+  border-bottom: 2px solid #ff69b4; /* Hot pink */
   padding-bottom: 8px;
 }
 
@@ -112,13 +112,13 @@ main h1 {
 }
 
 .tema-group ul li a:hover {
-  color: #f44336;
+  color: #ff1493; /* Deep pink */
   text-decoration: underline;
 }
 
 /* Footer */
 footer {
-  background-color: #f44336;
+  background-color: #ff69b4; /* Hot pink */
   color: white;
   text-align: center;
   padding: 15px 10px;
