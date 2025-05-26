@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fundamentos: Aritmética</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -14,29 +14,14 @@
       line-height: 1.6;
       padding: 2rem;
     }
-
-    h1, h2, h3 {
-      color: #b83280;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
     h2 {
-      font-size: 2rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+      color: #b83280;
       border-bottom: 2px solid #b83280;
       padding-bottom: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 2rem;
     }
-
-    h3 {
-      font-size: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
     .section {
       margin-bottom: 2.5rem;
       padding: 1rem;
@@ -44,24 +29,33 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(184, 50, 128, 0.15);
     }
-
-    .emoji {
-      font-size: 1.4rem;
-      margin-right: 0.3rem;
+    .simulator {
+      margin-top: 1rem;
+      background: #fff;
+      border: 2px dashed #ff99cc;
+      border-radius: 10px;
+      padding: 1rem;
     }
-
-    ul {
-      padding-left: 1.2rem;
+    .simulator input {
+      margin-right: 0.5rem;
+      padding: 0.3rem;
+      width: 4rem;
+      font-size: 1rem;
     }
-
-    code {
-      background-color: #fff;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
+    .simulator button {
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .simulator-result {
+      margin-top: 1rem;
+      font-weight: bold;
       font-family: monospace;
-      color: #b83280;
     }
-
     .example {
       background: #fff;
       border-left: 4px solid #b83280;
@@ -70,7 +64,6 @@
       border-radius: 8px;
       font-style: italic;
     }
-
     .girly {
       background: #fdf0f5;
       padding: 0.8rem 1rem;
@@ -79,161 +72,169 @@
       font-style: italic;
       margin-top: 0.8rem;
     }
-
-    .pink-title {
-      color: #ff66b2;
-      font-weight: bold;
-    }
-
-    .simulator {
-      margin-top: 1rem;
-      background: #fff;
-      border: 2px dashed #ff99cc;
-      border-radius: 10px;
-      padding: 1rem;
-    }
-
-    .simulator input {
-      margin-right: 0.5rem;
-      padding: 0.3rem;
-    }
-
-    .simulator button {
-      background-color: #ff66b2;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .simulator-result {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
 
-<div class="section">
-  <h2>🧴 Orden de Operaciones</h2>
-  <p>Tal como seguir los pasos de tu rutina de skincare para que todo quede perfecto:</p>
-  <ol>
-    <li><strong>Paréntesis</strong> (Primero lo que está dentro)</li>
-    <li><strong>Exponentes</strong> (Luego potencia o raíces)</li>
-    <li><strong>Multiplicación y División</strong> (de izquierda a derecha)</li>
-    <li><strong>Suma y Resta</strong> (de izquierda a derecha)</li>
-  </ol>
-  <div class="example">Ejemplo: <code>2 + 3 × (4 + 1) = 2 + 3 × 5 = 2 + 15 = 17</code></div>
-  <div class="girly">📌 Consejo real: Si no sigues el orden, los resultados cambian, igual que si te pones el glitter antes de la base 💄🙈</div>
+  <div class="section">
+    <h2>🧴 Orden de Operaciones</h2>
+    <p>Tal como seguir los pasos de tu rutina de skincare para que todo quede perfecto:</p>
+    <ol>
+      <li><strong>Paréntesis</strong> (Primero lo que está dentro)</li>
+      <li><strong>Exponentes</strong> (Luego potencia o raíces)</li>
+      <li><strong>Multiplicación y División</strong> (de izquierda a derecha)</li>
+      <li><strong>Suma y Resta</strong> (de izquierda a derecha)</li>
+    </ol>
+    <div class="example">Ejemplo: <code>2 + 3 × (4 + 1) = 2 + 3 × 5 = 2 + 15 = 17</code></div>
+    <div class="girly">📌 Consejo real: Si no sigues el orden, los resultados cambian, igual que si te pones el glitter antes de la base 💄🙈</div>
 
-  <!-- Simulador Paréntesis -->
-  <div class="simulator" style="margin-top: 1.5rem;">
-    <h3>✨ Paso 1: Resuelve los Paréntesis</h3>
-    <p>Calcula solo lo que está dentro:</p>
-    <input type="text" id="exprParenthesis" placeholder="Ejemplo: 4 + 3" />
-    <button onclick="solveParenthesis()">Calcular</button>
-    <div class="simulator-result" id="resultParenthesis"></div>
+    <!-- Simulador Paréntesis -->
+    <div class="simulator">
+      <h3>✨ Paso 1: Resuelve los Paréntesis</h3>
+      <p>Calcula solo lo que está dentro:</p>
+      <input type="text" id="exprParenthesis" placeholder="Ejemplo: 4 + 3" />
+      <button onclick="solveParenthesis()">Calcular</button>
+      <div class="simulator-result" id="resultParenthesis"></div>
+    </div>
+
+    <!-- Simulador Exponentes -->
+    <div class="simulator">
+      <h3>✨ Paso 2: Calcula Exponentes</h3>
+      <p>Calcula <code>a^b</code>:</p>
+      <input type="number" id="baseExp" placeholder="Base (a)" min="0" />
+      <input type="number" id="expExp" placeholder="Exponente (b)" min="0" />
+      <button onclick="solveExponent()">Calcular</button>
+      <div class="simulator-result" id="resultExponent"></div>
+    </div>
+
+    <!-- Simulador Multiplicación/División -->
+    <div class="simulator">
+      <h3>✨ Paso 3: Multiplicación y División</h3>
+      <p>Resuelve de izquierda a derecha:</p>
+      <input type="number" id="leftMD" placeholder="Número 1" />
+      <select id="opMD">
+        <option value="*">×</option>
+        <option value="/">÷</option>
+      </select>
+      <input type="number" id="rightMD" placeholder="Número 2" />
+      <button onclick="solveMulDiv()">Calcular</button>
+      <div class="simulator-result" id="resultMulDiv"></div>
+    </div>
+
+    <!-- Simulador Suma/Resta -->
+    <div class="simulator">
+      <h3>✨ Paso 4: Suma y Resta</h3>
+      <p>Resuelve de izquierda a derecha:</p>
+      <input type="number" id="leftSR" placeholder="Número 1" />
+      <select id="opSR">
+        <option value="+">+</option>
+        <option value="-">−</option>
+      </select>
+      <input type="number" id="rightSR" placeholder="Número 2" />
+      <button onclick="solveSumRest()">Calcular</button>
+      <div class="simulator-result" id="resultSumRest"></div>
+    </div>
+
+    <!-- Reto glam final -->
+    <div class="simulator" style="border-color: #ff66b2; margin-top: 2rem;">
+      <h3>🎉 Reto Glam: ¡Resuelve esta expresión!</h3>
+      <p id="finalChallengeExpr" style="font-family: monospace; font-size: 1.2rem;"></p>
+      <button onclick="solveFinalChallenge()">Resolver paso a paso</button>
+      <div class="simulator-result" id="resultFinal" style="margin-top: 1rem;"></div>
+    </div>
   </div>
 
-  <!-- Simulador Exponentes -->
-  <div class="simulator" style="margin-top: 1.5rem;">
-    <h3>✨ Paso 2: Calcula Exponentes</h3>
-    <p>Calcula <code>a^b</code>:</p>
-    <input type="number" id="baseExp" placeholder="Base (a)" min="0" />
-    <input type="number" id="expExp" placeholder="Exponente (b)" min="0" />
-    <button onclick="solveExponent()">Calcular</button>
-    <div class="simulator-result" id="resultExponent"></div>
-  </div>
-
-  <!-- Simulador Multiplicación/División -->
-  <div class="simulator" style="margin-top: 1.5rem;">
-    <h3>✨ Paso 3: Multiplicación y División</h3>
-    <p>Resuelve de izquierda a derecha:</p>
-    <input type="number" id="leftMD" placeholder="Número 1" />
-    <select id="opMD">
-      <option value="*">×</option>
-      <option value="/">÷</option>
-    </select>
-    <input type="number" id="rightMD" placeholder="Número 2" />
-    <button onclick="solveMulDiv()">Calcular</button>
-    <div class="simulator-result" id="resultMulDiv"></div>
-  </div>
-
-  <!-- Simulador Suma/Resta -->
-  <div class="simulator" style="margin-top: 1.5rem;">
-    <h3>✨ Paso 4: Suma y Resta</h3>
-    <p>Resuelve de izquierda a derecha:</p>
-    <input type="number" id="leftSR" placeholder="Número 1" />
-    <select id="opSR">
-      <option value="+">+</option>
-      <option value="-">−</option>
-    </select>
-    <input type="number" id="rightSR" placeholder="Número 2" />
-    <button onclick="solveSumRest()">Calcular</button>
-    <div class="simulator-result" id="resultSumRest"></div>
-  </div>
-
- <script>
-  // Función para generar un número entero aleatorio entre min y max (inclusive)
-  function randInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  // Genera la expresión aleatoria y la guarda en variables globales
-  let exprData = {};
-
-  function generateRandomExpression() {
-    // Números para la expresión
-    const base = randInt(2, 6);
-    const exp = randInt(2, 3);
-    const subtract = randInt(1, 5);
-    const mulDivNum = randInt(2, 6);
-    const divisor = randInt(2, 5);
-    const suma = randInt(1, 5);
-
-    // Construimos la expresión estilo:
-    // suma + mulDivNum × (base^exp − subtract) ÷ divisor
-    exprData = {
-      base,
-      exp,
-      subtract,
-      mulDivNum,
-      divisor,
-      suma
-    };
-
-    const exprStr = `${suma} + ${mulDivNum} × (${base}^${exp} − ${subtract}) ÷ ${divisor}`;
-    document.getElementById('finalChallengeExpr').textContent = exprStr;
-    document.getElementById('resultFinal').textContent = ''; // limpiar resultados previos
-  }
-
-  // Resuelve la expresión generada paso a paso
-  function solveFinalChallenge() {
-    if (!exprData.base) {
-      document.getElementById('resultFinal').textContent = 'Generando expresión...';
-      generateRandomExpression();
+<script>
+  function solveParenthesis() {
+    const expr = document.getElementById('exprParenthesis').value;
+    try {
+      const res = eval(expr);
+      document.getElementById('resultParenthesis').textContent = `Resultado: ${res}`;
+    } catch {
+      document.getElementById('resultParenthesis').textContent = 'Expresión inválida 😵‍💫';
     }
-    const { base, exp, subtract, mulDivNum, divisor, suma } = exprData;
-    let steps = [];
-
-    steps.push(`Calculamos el exponente: ${base}^${exp} = ${Math.pow(base, exp)}`);
-    const power = Math.pow(base, exp);
-    const insidePar = power - subtract;
-    steps.push(`Restamos dentro del paréntesis: ${power} − ${subtract} = ${insidePar}`);
-
-    const mul = mulDivNum * insidePar;
-    steps.push(`Multiplicamos: ${mulDivNum} × ${insidePar} = ${mul}`);
-
-    const div = mul / divisor;
-    steps.push(`Dividimos: ${mul} ÷ ${divisor} = ${div}`);
-
-    const final = suma + div;
-    steps.push(`Sumamos el número inicial: ${suma} + ${div} = ${final}`);
-
-    document.getElementById('resultFinal').innerHTML = steps.map(s => `💖 ${s}`).join('<br>');
   }
 
-  // Al cargar la página generamos el primer reto aleatorio
-  window.onload = generateRandomExpression;
+  function solveExponent() {
+    const base = Number(document.getElementById('baseExp').value);
+    const exp = Number(document.getElementById('expExp').value);
+    if (isNaN(base) || isNaN(exp)) {
+      document.getElementById('resultExponent').textContent = 'Introduce números válidos 🙈';
+      return;
+    }
+    const res = Math.pow(base, exp);
+    document.getElementById('resultExponent').textContent = `${base}^${exp} = ${res}`;
+  }
+
+  function solveMulDiv() {
+    const left = Number(document.getElementById('leftMD').value);
+    const right = Number(document.getElementById('rightMD').value);
+    const op = document.getElementById('opMD').value;
+    if (isNaN(left) || isNaN(right)) {
+      document.getElementById('resultMulDiv').textContent = 'Introduce números válidos 🙈';
+      return;
+    }
+    let res;
+    if (op === '*') res = left * right;
+    else if (op === '/') {
+      if (right === 0) {
+        document.getElementById('resultMulDiv').textContent = 'No se puede dividir entre 0 😬';
+        return;
+      }
+      res = left / right;
+    }
+    document.getElementById('resultMulDiv').textContent = `${left} ${op} ${right} = ${res}`;
+  }
+
+  function solveSumRest() {
+    const left = Number(document.getElementById('leftSR').value);
+    const right = Number(document.getElementById('rightSR').value);
+    const op = document.getElementById('opSR').value;
+    if (isNaN(left) || isNaN(right)) {
+      document.getElementById('resultSumRest').textContent = 'Introduce números válidos 🙈';
+      return;
+    }
+    let res;
+    if (op === '+') res = left + right;
+    else if (op === '-') res = left - right;
+    document.getElementById('resultSumRest').textContent = `${left} ${op} ${right} = ${res}`;
+  }
+
+  let finalChallenge = null;
+
+  function generateFinalChallenge() {
+    const a = Math.floor(Math.random() * 5) + 1;
+    const b = Math.floor(Math.random() * 5) + 1;
+    const c = Math.floor(Math.random() * 5) + 1;
+    const d = Math.floor(Math.random() * 3) + 1;
+
+    const expr = `(${a} + ${b})^${d} × ${c}`;
+    return { a, b, c, d, expr };
+  }
+
+  function solveFinalChallenge() {
+    if (!finalChallenge) return;
+    const { a, b, c, d } = finalChallenge;
+
+    const parResult = a + b;
+    const expResult = Math.pow(parResult, d);
+    const finalResult = expResult * c;
+
+    const steps = [
+      `Paso 1: Resuelve paréntesis: (${a} + ${b}) = ${parResult}`,
+      `Paso 2: Aplica exponente: ${parResult}^${d} = ${expResult}`,
+      `Paso 3: Multiplica: ${expResult} × ${c} = ${finalResult}`,
+      `Resultado final: ${finalResult} 🎉`
+    ];
+
+    document.getElementById('resultFinal').innerHTML = steps.join('<br>');
+  }
+
+  window.onload = () =>
+    {
+finalChallenge = generateFinalChallenge();
+document.getElementById('finalChallengeExpr').textContent = finalChallenge.expr;
+};
 </script>
+
+</body> </html> ```
