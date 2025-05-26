@@ -1,254 +1,168 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Mobile</title>
-    <style>
-        /* Tipografías */
-        @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap');
+/* Tipografías */
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap');
 
-        body {
-            margin: 0;
-            font-family: 'Raleway', sans-serif;
-            background-color: white;
-            color: #333;
-            line-height: 1.6;
-        }
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
 
-        /* ----- MENÚ HAMBURGUESA ----- */
-        .menu-container {
-            background-color: #ffbce0;
-            padding: 15px 20px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+/* Menú de navegación */
+.menu {
+  background-color: #f44336; /* rojo vibrante */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-        .menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.menu-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-        .logo {
-            color: black;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-decoration: none;
-        }
+.menu ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-        .hamburger-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: black;
-            padding: 5px 10px;
-        }
+.menu ul li {
+  margin-right: 25px;
+}
 
-        .menu-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
+.menu ul li:last-child {
+  margin-right: 0;
+}
 
-        .menu-list.show {
-            max-height: 500px; /* Ajusta según necesidad */
-            transition: max-height 0.5s ease-in;
-        }
+.menu a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 15px 0;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
 
-        .menu-list li {
-            padding: 10px 0;
-            border-top: 1px solid rgba(255, 0, 139, 0.1);
-        }
+.menu a i {
+  margin-right: 8px;
+}
 
-        .menu-list a {
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            padding: 8px 0;
-            transition: all 0.3s ease;
-        }
+.menu a:hover,
+.menu a.active {
+  background-color: #d32f2f;
+  border-radius: 5px;
+}
 
-        .menu-list a:hover {
-            color: #ff008b;
-            padding-left: 10px;
-        }
+/* Contenido principal */
+main {
+  max-width: 1100px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+}
 
-        .menu-list a i {
-            margin-right: 10px;
-            color: #ff008b;
-        }
+main h1 {
+  font-family: 'Cal Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  color: #f44336;
+  text-align: center;
+}
 
-        /* Submenú */
-        .submenu {
-            list-style: none;
-            padding-left: 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
+/* Sección de temas */
+.tema-group {
+  margin-bottom: 50px;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-        .submenu.show {
-            max-height: 300px;
-        }
+.tema-group h2 {
+  font-family: 'Cal Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #b71c1c;
+  border-bottom: 2px solid #f44336;
+  padding-bottom: 8px;
+}
 
-        .submenu li {
-            padding: 8px 0;
-            border-top: none;
-        }
+.tema-group ul {
+  list-style-type: none;
+  padding-left: 0;
+}
 
-        .submenu a {
-            font-weight: normal;
-            font-size: 0.9rem;
-        }
+.tema-group ul li {
+  margin-bottom: 10px;
+}
 
-        .has-submenu {
-            position: relative;
-        }
+.tema-group ul li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1.1rem;
+  transition: color 0.25s ease;
+}
 
-        .submenu-toggle {
-            position: absolute;
-            right: 0;
-            top: 10px;
-            background: none;
-            border: none;
-            color: #ff008b;
-            font-size: 1rem;
-            cursor: pointer;
-        }
+.tema-group ul li a:hover {
+  color: #f44336;
+  text-decoration: underline;
+}
 
-        /* Contenido principal */
-        main {
-            max-width: 1100px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
+/* Footer */
+footer {
+  background-color: #f44336;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+}
 
-        /* Footer */
-        footer {
-            background-color: #ffbce0;
-            color: black;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
+/* Responsive */
+@media (max-width: 768px) {
+  .menu ul {
+    flex-direction: column;
+  }
 
-        /* Versión desktop (opcional) */
-        @media (min-width: 992px) {
-            .hamburger-btn {
-                display: none;
-            }
+  .menu ul li {
+    margin-bottom: 10px;
+  }
 
-            .menu-list {
-                max-height: none;
-                display: flex;
-            }
+  .menu ul li:last-child {
+    margin-bottom: 0;
+  }
 
-            .menu-list li {
-                padding: 0 15px;
-                border-top: none;
-            }
+  main {
+    margin: 20px auto 40px;
+    padding: 0 15px;
+  }
 
-            .submenu {
-                position: absolute;
-                background: white;
-                min-width: 200px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                border-radius: 0 0 5px 5px;
-                padding-left: 0;
-            }
+  .tema-group {
+    padding: 15px 20px;
+  }
+}
 
-            .submenu li {
-                padding: 0;
-            }
+@media (max-width: 480px) {
+  main h1 {
+    font-size: 2rem;
+  }
 
-            .submenu a {
-                padding: 10px 20px;
-            }
+  .tema-group h2 {
+    font-size: 1.4rem;
+  }
 
-            .submenu-toggle {
-                display: none;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Menú -->
-    <div class="menu-container">
-        <div class="menu-header">
-            <a href="#" class="logo">MiSitio</a>
-            <button class="hamburger-btn">☰</button>
-        </div>
-        <ul class="menu-list" id="mainMenu">
-            <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
-            <li class="has-submenu">
-                <a href="#"><i class="fas fa-book"></i> Categorías</a>
-                <button class="submenu-toggle">▼</button>
-                <ul class="submenu">
-                    <li><a href="#">Subcategoría 1</a></li>
-                    <li><a href="#">Subcategoría 2</a></li>
-                    <li><a href="#">Subcategoría 3</a></li>
-                </ul>
-            </li>
-            <li><a href="#"><i class="fas fa-info-circle"></i> Acerca de</a></li>
-            <li><a href="#"><i class="fas fa-envelope"></i> Contacto</a></li>
-        </ul>
-    </div>
-
-    <!-- Contenido -->
-    <main>
-        <h1>Bienvenido a mi sitio</h1>
-        <p>Contenido de ejemplo aquí...</p>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2023 Mi Sitio Web. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburgerBtn = document.querySelector('.hamburger-btn');
-            const mainMenu = document.getElementById('mainMenu');
-            const submenuToggles = document.querySelectorAll('.submenu-toggle');
-
-            // Menú principal
-            hamburgerBtn.addEventListener('click', function() {
-                mainMenu.classList.toggle('show');
-            });
-
-            // Submenús
-            submenuToggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
-                    const submenu = this.parentElement.querySelector('.submenu');
-                    submenu.classList.toggle('show');
-                    this.textContent = submenu.classList.contains('show') ? '▲' : '▼';
-                });
-            });
-
-            // Cerrar menú al hacer clic en un enlace (opcional)
-            const menuLinks = document.querySelectorAll('.menu-list a');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth < 992) {
-                        mainMenu.classList.remove('show');
-                    }
-                });
-            });
-        });
-    </script>
-
-    <!-- Iconos (Font Awesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</body>
-</html>
+  .tema-group ul li a {
+    font-size: 1rem;
+  }
+}
