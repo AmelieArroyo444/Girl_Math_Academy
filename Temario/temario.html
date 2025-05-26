@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Temario | Girl Math Academy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girl Math Academy</title>
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="temario">
+<body>
+  
   <nav class="menu">
     <div class="menu-container">
       <ul>
@@ -20,9 +21,10 @@
     </div>
   </nav>
 
-  <main class="contenido">
-    <h1 class="titulo-principal">Temario</h1>
+  <main>
+    <h1>Temario</h1>
 
+    <!-- Fundamentos -->
     <section class="tema-group">
       <h2>Fundamentos</h2>
       <ul>
@@ -39,6 +41,7 @@
       </ul>
     </section>
 
+    <!-- Álgebra -->
     <section class="tema-group">
       <h2>Álgebra</h2>
       <ul>
@@ -61,6 +64,7 @@
       </ul>
     </section>
 
+    <!-- Geometría -->
     <section class="tema-group">
       <h2>Geometría</h2>
       <ul>
@@ -73,6 +77,7 @@
       </ul>
     </section>
 
+    <!-- Lógica -->
     <section class="tema-group">
       <h2>Lógica</h2>
       <ul>
@@ -83,6 +88,7 @@
       </ul>
     </section>
 
+    <!-- Estadística -->
     <section class="tema-group">
       <h2>Estadística</h2>
       <ul>
@@ -95,31 +101,34 @@
       </ul>
     </section>
 
+    <!-- Álgebra Lineal -->
     <section class="tema-group">
       <h2>Álgebra Lineal</h2>
       <ul>
         <li><a href="algebra-lineal/operaciones-matrices.html">Operaciones con matrices</a></li>
         <li><a href="algebra-lineal/matriz-transpuesta-inversa.html">Matriz transpuesta e inversa</a></li>
         <li><a href="algebra-lineal/determinantes.html">Determinantes</a></li>
-        <li><a href="algebra-lineal/sistemas-matrices.html">Sistemas con matrices</a></li>
-        <li><a href="algebra-lineal/valores-vectores.html">Valores y vectores</a></li>
+        <li><a href="algebra-lineal/sistemas-matrices.html">Sistemas de matrices</a></li>
+        <li><a href="algebra-lineal/valores-vectores.html">Valores y vectores propios</a></li>
         <li><a href="algebra-lineal/espacios-vectoriales.html">Espacios vectoriales</a></li>
       </ul>
     </section>
 
+    <!-- Computación -->
     <section class="tema-group">
       <h2>Computación</h2>
       <ul>
         <li><a href="computacion/modelos-computacionales.html">Modelos computacionales</a></li>
         <li><a href="computacion/analisis-datos.html">Análisis de datos</a></li>
-        <li><a href="computacion/machine-learning.html">Machine Learning</a></li>
-        <li><a href="computacion/inteligencia-artificial.html">Inteligencia Artificial</a></li>
+        <li><a href="computacion/machine-learning.html">Machine learning</a></li>
+        <li><a href="computacion/inteligencia-artificial.html">Inteligencia artificial</a></li>
         <li><a href="computacion/redes-neuronales.html">Redes neuronales</a></li>
-        <li><a href="computacion/algebra-redes.html">Álgebra para redes</a></li>
+        <li><a href="computacion/algebra-redes.html">Álgebra de redes</a></li>
         <li><a href="computacion/optimizacion.html">Optimización</a></li>
       </ul>
     </section>
 
+    <!-- Avanzados -->
     <section class="tema-group">
       <h2>Avanzados</h2>
       <ul>
@@ -134,28 +143,13 @@
 
   <footer>
     <div class="footer-content">
-      <p>© 2025 Girl Math Academy - Amélie Arroyo & Valentina Reyes &lt;3</p>
+      <p>© 2025 Girl Math Academy - Amélie Arroyo & Valentina Reyes <3</p>
     </div>
   </footer>
 
   <script>
     const temaGroups = document.querySelectorAll('.tema-group');
 
-    const isInView = (element) => {
-      const rect = element.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom >= 0;
-    };
-
-    const handleScroll = () => {
-      temaGroups.forEach(group => {
-        if (isInView(group)) {
-          group.classList.add('visible');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-  </script>
-</body>
-</html>
+   
+::contentReference[oaicite:0]{index=0}
+ 
