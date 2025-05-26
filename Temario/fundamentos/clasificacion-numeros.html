@@ -35,6 +35,7 @@
     h3 {
       font-size: 1.5rem;
       margin-top: 1.5rem;
+      color: #ff66b2;
     }
 
     .section {
@@ -66,89 +67,154 @@
       background: #fff;
       border-left: 4px solid #b83280;
       padding: 0.8rem 1rem;
+    }
+
+    .game {
+      background-color: #fff0f6;
+      border: 2px dashed #ff66b2;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .options button, .new-question {
+      background-color: #ffccdf;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0.3rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .options button:hover, .new-question:hover {
+      background-color: #ffb3cd;
+    }
+
+    .feedback {
       margin-top: 1rem;
-      border-radius: 8px;
-      font-style: italic;
-    }
-
-    .girly {
-      background: #fdf0f5;
-      padding: 0.8rem 1rem;
-      border-left: 4px solid #ff66b2;
-      border-radius: 8px;
-      font-style: italic;
-      margin-top: 0.8rem;
-    }
-
-    .pink-title {
-      color: #ff66b2;
       font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>🌟 Clasificación de Números 🌟</h1>
-
+  <h1>Clasificación de Números</h1>
   <div class="section">
-    <h2>📚 ¿Qué son los conjuntos numéricos?</h2>
-    <p>En matemáticas, los <span class="pink-title">conjuntos numéricos</span> son categorías que nos ayudan a clasificar los diferentes tipos de números según sus características.</p>
-    <ul>
-      <li><span class="pink-title">ℕ (Naturales):</span> Son los números que usamos para contar: <code>1, 2, 3, 4...</code></li>
-      <li><span class="pink-title">ℤ (Enteros):</span> Incluyen los naturales, el <code>0</code>, y los negativos: <code>-3, -2, -1, 0, 1...</code></li>
-      <li><span class="pink-title">ℚ (Racionales):</span> Son fracciones o decimales que se pueden expresar como cociente de enteros, como <code>1/2, -3/4, 0.75</code></li>
-      <li><span class="pink-title">I (Irracionales):</span> No pueden expresarse como fracción exacta. Sus decimales son infinitos y no periódicos, como <code>π</code> o <code>√2</code>.</li>
-    </ul>
-    <p>🎀 Cada conjunto incluye a los anteriores: por ejemplo, todo número natural también es un número entero y racional.</p>
-  </div>
+    <p>Los números se organizan en familias para que sea más fácil entenderlos y usarlos en la vida real, ¡como cuando organizas tu closet por colores, estilos y temporadas! 👗🎀</p>
 
-  <div class="section">
-    <h2>🎮 Juego: ¿A qué conjunto pertenece?</h2>
-    <p>Adivina a qué conjunto pertenece el siguiente número. ¡Demuestra tus superpoderes matemáticos! ✨🧠</p>
+    <h2>1. Números Naturales (ℕ)</h2>
+    <p><strong>Los básicos para contar</strong><br>
+    Son los números que usas para contar cosas que tienes o quieres.</p>
+    <div class="example">
+      ✨ Ejemplo girly:<br>
+      “Tengo 5 esmaltes de uñas, 8 playlists y 12 capítulos pendientes de ver.”<br>
+      Esto es contar con números naturales: 5, 8, 12.
+    </div>
 
-    <div class="girly">
-      <button onclick="generarNumero()">🎲 Generar Número</button>
-      <p id="numero">Haz clic en el botón para empezar</p>
+    <h2>2. Números Enteros (ℤ)</h2>
+    <p><strong>Naturales + negativos y el cero</strong><br>
+    Sirven para cuando cuentas cosas que pueden bajar o subir, como el termómetro o tu saldo bancario.</p>
+    <div class="example">
+      ✨ Ejemplo girly:<br>
+      “Tengo $200, pero me gasté $50, así que ahora tengo $150. O sea, 200 − 50 = 150. Si debía $30, eso sería −30.”<br>
+      Aquí usas enteros porque incluyes números negativos (deudas).
+    </div>
 
-      <div>
-        <button onclick="verificarRespuesta('N')">ℕ Naturales</button>
-        <button onclick="verificarRespuesta('Z')">ℤ Enteros</button>
-        <button onclick="verificarRespuesta('Q')">ℚ Racionales</button>
-        <button onclick="verificarRespuesta('I')">Irracionales</button>
-      </div>
-      <p id="resultado"></p>
+    <h2>3. Números Racionales (ℚ)</h2>
+    <p><strong>Fracciones y decimales que terminan o se repiten</strong><br>
+    Son números que puedes expresar como una fracción, por ejemplo, dividir una pizza o compartir un postre.</p>
+    <div class="example">
+      ✨ Ejemplo girly:<br>
+      “Me comí 1/4 de la pizza y mi amiga se comió 3/4. O sea, 0.25 y 0.75 de pizza.”<br>
+      O cuando divides tu cuenta en un restaurante y pagas $75.50 entre 3, das $25.17 cada una.
+    </div>
+
+    <h2>4. Números Irracionales</h2>
+    <p><strong>Números que no se pueden escribir como fracción exacta</strong><br>
+    Son decimales que nunca terminan ni se repiten.</p>
+    <div class="example">
+      ✨ Ejemplo girly:<br>
+      Piensa en la medida perfecta de un outfit para que quede increíble (como la raíz cuadrada de 2) o la proporción divina (pi, π ≈ 3.1416) en diseño gráfico de tu app favorita.<br>
+      No puedes escribir π como una fracción exacta, pero lo usas para que todo se vea on point.
+    </div>
+
+    <h2>5. Números Reales (ℝ)</h2>
+    <p><strong>Todos los anteriores juntos</strong><br>
+    Son los números que usas en la vida diaria, desde contar hasta medir tu altura o peso.</p>
+    <div class="example">
+      ✨ Ejemplo girly:<br>
+      “Mi estatura es 1.65 m y peso 55.7 kg. Todos esos son números reales.”
+    </div>
+
+    <h2>6. Números Complejos (ℂ)</h2>
+    <p><strong>Números reales + la unidad imaginaria (i = √−1)</strong><br>
+    Aunque suena mágico, los números complejos son súper útiles para tecnología, animaciones y efectos especiales.</p>
+    <div class="example">
+      ✨ Ejemplo girly:<br>
+      Cuando ves efectos especiales en tus videos favoritos, como luces que cambian o movimientos que parecen flotar, están usando números complejos para que todo se vea tan cool como tus filtros en Instagram.
+    </div>
+
+    <div class="game">
+      <h3>🎮 ¿Qué tipo de número es?</h3>
+      <div class="question" id="question">¿Qué tipo de número es...?</div>
+      <div class="options"></div>
+      <div class="feedback" id="feedback"></div>
+      <button class="new-question" onclick="generateQuestion()">Nuevo número</button>
     </div>
   </div>
 
   <script>
-    const numeros = [
-      { valor: 7, tipo: 'N' },
-      { valor: -3, tipo: 'Z' },
-      { valor: 0.75, tipo: 'Q' },
-      { valor: '√2', tipo: 'I' },
-      { valor: 0, tipo: 'Z' },
-      { valor: 'π', tipo: 'I' },
-      { valor: -0.5, tipo: 'Q' },
-      { valor: 5, tipo: 'N' },
+    const questions = [
+      { number: 0.5, answer: 'Racional' },
+      { number: Math.PI, answer: 'Irracional' },
+      { number: -3, answer: 'Entero' },
+      { number: 7, answer: 'Natural' },
+      { number: Math.sqrt(2), answer: 'Irracional' },
+      { number: '3 + 2i', answer: 'Complejo' },
+      { number: 0, answer: 'Entero' },
+      { number: 1/3, answer: 'Racional' },
+      { number: '√−1', answer: 'Imaginario' }
     ];
 
-    let numeroActual = null;
+    const options = ['Natural', 'Entero', 'Racional', 'Irracional', 'Complejo', 'Imaginario'];
+    let selected;
 
-    function generarNumero() {
-      const random = Math.floor(Math.random() * numeros.length);
-      numeroActual = numeros[random];
-      document.getElementById("numero").textContent = `Número: ${numeroActual.valor}`;
-      document.getElementById("resultado").textContent = '';
+    function generateQuestion() {
+      const randomIndex = Math.floor(Math.random() * questions.length);
+      selected = questions[randomIndex];
+
+      document.getElementById('question').textContent = `¿Qué tipo de número es ${selected.number}?`;
+
+      const buttonsContainer = document.querySelector('.options');
+      buttonsContainer.innerHTML = '';
+      options.forEach(option => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.onclick = () => checkAnswer(option);
+        buttonsContainer.appendChild(button);
+      });
+
+      document.getElementById('feedback').textContent = '';
     }
 
-    function verificarRespuesta(respuesta) {
-      if (!numeroActual) return;
-
-      if (respuesta === numeroActual.tipo) {
-        document.getElementById("resultado").textContent = "✅ ¡Correcto! Muy bien, queen 👑";
+    function checkAnswer(option) {
+      const feedback = document.getElementById('feedback');
+      if (option === selected.answer) {
+        feedback.textContent = '¡Correcto! 🎉';
+        feedback.style.color = '#38b000';
       } else {
-        document.getElementById("resultado").textContent = "❌ Uy, intenta de nuevo 💔";
+        feedback.textContent = `Oops... la respuesta correcta es ${selected.answer}.`;
+        feedback.style.color = '#e63946';
       }
     }
+
+    generateQuestion();
   </script>
 </body>
 </html>
