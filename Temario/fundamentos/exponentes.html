@@ -1,1 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exponentes ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background-color: #fff0f8;
+      color: #6b1f5d;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #d44b9a;
+      border-bottom: 3px solid #f87ac1;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+    }
+    .section {
+      background: #fce7f3;
+      padding: 1.5rem 2rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 15px rgba(212, 75, 154, 0.3);
+      margin-bottom: 2.5rem;
+    }
+    .example {
+      background: white;
+      border-left: 5px solid #f87ac1;
+      padding: 1rem 1.2rem;
+      margin-top: 1rem;
+      border-radius: 10px;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #83265a;
+    }
+    .girly-tip {
+      margin-top: 0.7rem;
+      background: #f8d7e0;
+      border-left: 5px solid #d44b9a;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      font-style: italic;
+      color: #a7347d;
+      font-size: 1rem;
+    }
+    .simulator {
+      margin-top: 1.2rem;
+      background: white;
+      border: 2px dashed #f87ac1;
+      border-radius: 14px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(212, 75, 154, 0.15);
+    }
+    .simulator input {
+      padding: 0.4rem;
+      width: 4.5rem;
+      font-size: 1.1rem;
+      border: 2px solid #f87ac1;
+      border-radius: 8px;
+      margin-right: 0.6rem;
+      text-align: center;
+      font-family: monospace;
+      color: #83265a;
+      font-weight: 600;
+    }
+    .simulator button {
+      background-color: #d44b9a;
+      border: none;
+      color: white;
+      padding: 0.5rem 1.3rem;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .simulator button:hover {
+      background-color: #a7347d;
+    }
+    .simulator-result {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-family: monospace;
+      font-size: 1.2rem;
+      color: #83265a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h2>✨ Exponentes: El poder de multiplicar tu sabiduría ✨</h2>
+    <p>Un exponente te dice cuántas veces multiplicas un número por sí mismo.</p>
+    <div class="example">Ejemplo: <code>3<sup>4</sup> = 3 × 3 × 3 × 3 = 81</code></div>
+    <div class="girly-tip">💖 Tip girly: Es como cuando usas tu perfume favorito varias veces y el aroma se vuelve irresistible ✨</div>
+
+    <div class="simulator">
+      <h3>Calcula una potencia</h3>
+      <input type="number" id="baseExp" placeholder="Base" />
+      <input type="number" id="expoExp" placeholder="Exponente" />
+      <button onclick="calcularExponente()">Calcular</button>
+      <div class="simulator-result" id="resultadoExponente"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎲 Mini Juego: ¿Cuánto es la potencia? 🎲</h2>
+    <p>Yo te doy base y exponente, tú brilla y adivina el resultado 💖</p>
+    <div class="simulator">
+      <p id="expMiniJuegoExpr" style="font-family: monospace; font-size: 1.3rem; font-weight: 700; color:#83265a;"></p>
+      <input type="number" id="expMiniJuegoInput" placeholder="Tu respuesta" />
+      <button onclick="verificarExpMiniJuego()">¡Verificar!</button>
+      <div class="simulator-result" id="expMiniJuegoResultado"></div>
+      <button onclick="generarExpMiniJuego()" style="margin-top: 0.7rem; background-color:#f87ac1;">Nuevo reto</button>
+    </div>
+  </div>
+
+<script>
+  function calcularExponente() {
+    const base = Number(document.getElementById('baseExp').value);
+    const expo = Number(document.getElementById('expoExp').value);
+    const resDiv = document.getElementById('resultadoExponente');
+
+    if (isNaN(base) || isNaN(expo)) {
+      resDiv.textContent = 'Porfa, escribe números válidos 🙈';
+      return;
+    }
+    if (expo < 0) {
+      resDiv.textContent = 'Solo exponentes positivos por ahora 💖';
+      return;
+    }
+    const resultado = Math.pow(base, expo);
+    resDiv.textContent = `${base}^${expo} = ${resultado}`;
+  }
+
+  // Mini juego potencia
+  let expJuegoActual = null;
+
+  function generarExpMiniJuego() {
+    const base = Math.floor(Math.random() * 8) + 2; // base 2 a 9
+    const expo = Math.floor(Math.random() * 4) + 1; // exponente 1 a 4
+    expJuegoActual = { base, expo };
+    document.getElementById('expMiniJuegoExpr').textContent = `${base}^${expo} = ?`;
+    document.getElementById('expMiniJuegoResultado').textContent = '';
+    document.getElementById('expMiniJuegoInput').value = '';
+  }
+
+  function verificarExpMiniJuego() {
+    const respuesta = Number(document.getElementById('expMiniJuegoInput').value);
+    const resDiv = document.getElementById('expMiniJuegoResultado');
+    if (isNaN(respuesta)) {
+      resDiv.textContent = 'Pon un número válido 🙈';
+      return;
+    }
+    const correcto = Math.pow(expJuegoActual.base, expJuegoActual.expo);
+    if (respuesta === correcto) {
+      resDiv.textContent = '🎉 ¡Brillaste! Eres una reina de los exponentes 👑✨';
+    } else {
+      resDiv.textContent = `❌ Casi... la respuesta correcta es ${correcto}`;
+    }
+  }
+
+  // Inicializar juego al cargar
+  window.onload = () => {
+    generarExpMiniJuego();
+  };
+</script>
+
+</body>
+</html>
 
