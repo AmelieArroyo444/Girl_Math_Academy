@@ -174,93 +174,66 @@
     <div class="simulator-result" id="resultSumRest"></div>
   </div>
 
-  <!-- Mini reto final -->
-  <div class="simulator" style="margin-top: 2rem; border-color: #ff66b2;">
-    <h3>🎉 Reto Glam: ¡Resuelve toda esta expresión!</h3>
-    <p><code>3 + 2 × (5^2 − 3) ÷ 4</code></p>
-    <button onclick="solveFinalChallenge()">Resolver paso a paso</button>
-    <div class="simulator-result" id="resultFinal"></div>
-  </div>
-</div>
-
-<script>
-  function solveParenthesis() {
-    const expr = document.getElementById('exprParenthesis').value;
-    try {
-      // Usamos eval con precaución para expresión simple dentro de paréntesis
-      const res = eval(expr);
-      document.getElementById('resultParenthesis').textContent = `Resultado: ${res} 🎉`;
-    } catch {
-      document.getElementById('resultParenthesis').textContent = 'Ingresa una expresión válida dentro del paréntesis.';
-    }
+ <script>
+  // Función para generar un número entero aleatorio entre min y max (inclusive)
+  function randInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  function solveExponent() {
-    const base = Number(document.getElementById('baseExp').value);
-    const exp = Number(document.getElementById('expExp').value);
-    if (isNaN(base) || isNaN(exp)) {
-      document.getElementById('resultExponent').textContent = 'Por favor, ingresa números válidos.';
-      return;
-    }
-    const res = Math.pow(base, exp);
-    document.getElementById('resultExponent').textContent = `${base} ^ ${exp} = ${res} ✨`;
+  // Genera la expresión aleatoria y la guarda en variables globales
+  let exprData = {};
+
+  function generateRandomExpression() {
+    // Números para la expresión
+    const base = randInt(2, 6);
+    const exp = randInt(2, 3);
+    const subtract = randInt(1, 5);
+    const mulDivNum = randInt(2, 6);
+    const divisor = randInt(2, 5);
+    const suma = randInt(1, 5);
+
+    // Construimos la expresión estilo:
+    // suma + mulDivNum × (base^exp − subtract) ÷ divisor
+    exprData = {
+      base,
+      exp,
+      subtract,
+      mulDivNum,
+      divisor,
+      suma
+    };
+
+    const exprStr = `${suma} + ${mulDivNum} × (${base}^${exp} − ${subtract}) ÷ ${divisor}`;
+    document.getElementById('finalChallengeExpr').textContent = exprStr;
+    document.getElementById('resultFinal').textContent = ''; // limpiar resultados previos
   }
 
-  function solveMulDiv() {
-    const left = Number(document.getElementById('leftMD').value);
-    const op = document.getElementById('opMD').value;
-    const right = Number(document.getElementById('rightMD').value);
-    if (isNaN(left) || isNaN(right)) {
-      document.getElementById('resultMulDiv').textContent = 'Ingresa números válidos.';
-      return;
-    }
-    let res;
-    if (op === '*') res = left * right;
-    else if (op === '/') {
-      if (right === 0) {
-        document.getElementById('resultMulDiv').textContent = 'No se puede dividir entre cero.';
-        return;
-      }
-      res = left / right;
-    }
-    document.getElementById('resultMulDiv').textContent = `${left} ${op} ${right} = ${res} 💅`;
-  }
-
-  function solveSumRest() {
-    const left = Number(document.getElementById('leftSR').value);
-    const op = document.getElementById('opSR').value;
-    const right = Number(document.getElementById('rightSR').value);
-    if (isNaN(left) || isNaN(right)) {
-      document.getElementById('resultSumRest').textContent = 'Ingresa números válidos.';
-      return;
-    }
-    let res;
-    if (op === '+') res = left + right;
-    else if (op === '-') res = left - right;
-    document.getElementById('resultSumRest').textContent = `${left} ${op} ${right} = ${res} 💖`;
-  }
-
+  // Resuelve la expresión generada paso a paso
   function solveFinalChallenge() {
-    // Expresión: 3 + 2 × (5^2 − 3) ÷ 4
+    if (!exprData.base) {
+      document.getElementById('resultFinal').textContent = 'Generando expresión...';
+      generateRandomExpression();
+    }
+    const { base, exp, subtract, mulDivNum, divisor, suma } = exprData;
     let steps = [];
 
-    // Paso 1: Resolver el paréntesis interno: (5^2 − 3)
-    const power = Math.pow(5, 2);
-    steps.push(`5^2 = ${power}`);
-    const insidePar = power - 3;
-    steps.push(`(5^2 - 3) = ${insidePar}`);
+    steps.push(`Calculamos el exponente: ${base}^${exp} = ${Math.pow(base, exp)}`);
+    const power = Math.pow(base, exp);
+    const insidePar = power - subtract;
+    steps.push(`Restamos dentro del paréntesis: ${power} − ${subtract} = ${insidePar}`);
 
-    // Paso 2: Multiplicación y división de izquierda a derecha: 2 × insidePar ÷ 4
-    const mul = 2 * insidePar;
-    steps.push(`2 × ${insidePar} = ${mul}`);
-    const div = mul / 4;
-    steps.push(`${mul} ÷ 4 = ${div}`);
+    const mul = mulDivNum * insidePar;
+    steps.push(`Multiplicamos: ${mulDivNum} × ${insidePar} = ${mul}`);
 
-    // Paso 3: Suma final: 3 + div
-    const final = 3 + div;
-    steps.push(`3 + ${div} = ${final}`);
+    const div = mul / divisor;
+    steps.push(`Dividimos: ${mul} ÷ ${divisor} = ${div}`);
 
-    // Mostrar pasos con emojis girly
+    const final = suma + div;
+    steps.push(`Sumamos el número inicial: ${suma} + ${div} = ${final}`);
+
     document.getElementById('resultFinal').innerHTML = steps.map(s => `💖 ${s}`).join('<br>');
   }
+
+  // Al cargar la página generamos el primer reto aleatorio
+  window.onload = generateRandomExpression;
 </script>
