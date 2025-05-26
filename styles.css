@@ -1,10 +1,17 @@
-/* Fuentes */
+/* Base */
 body {
   font-family: 'Raleway', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #fff0f5;
   color: #4a154b;
+}
+
+/* Contenedor principal */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 /* Navegación */
@@ -42,19 +49,18 @@ body {
 main h1 {
   text-align: center;
   font-size: 2.5rem;
-  margin-top: 2rem;
+  margin-bottom: 2rem;
   color: #d63384;
   font-family: 'Cal Sans', sans-serif;
 }
 
 /* Secciones del temario */
 section {
-  max-width: 800px;
-  margin: 2rem auto;
   background-color: #fff8fb;
   padding: 1.5rem 2rem;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(214, 51, 132, 0.1);
+  margin-bottom: 2rem;
 }
 
 section h2 {
@@ -94,7 +100,7 @@ footer {
   border-top: 2px solid #ffb6c1;
 }
 
-/* Transición al hacer scroll (opcional si usas clases .visible) */
+/* Animación scroll (si usas visibilidad) */
 .tema-group {
   opacity: 0;
   transform: translateY(20px);
