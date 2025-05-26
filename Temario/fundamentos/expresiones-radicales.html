@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expresiones Radicales 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #fff0f8;
+      color: #7a2a68;
+      font-family: 'Outfit', sans-serif;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #d65a9d;
+      border-bottom: 3px solid #f98bc1;
+      padding-bottom: 0.6rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+    }
+    .section {
+      background: #fce7f3;
+      padding: 1.6rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(214, 90, 157, 0.3);
+      margin-bottom: 3rem;
+    }
+    .example {
+      background: white;
+      border-left: 6px solid #f98bc1;
+      padding: 1rem 1.3rem;
+      margin-top: 1.2rem;
+      border-radius: 11px;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #8a2e6a;
+    }
+    .girly-tip {
+      margin-top: 0.8rem;
+      background: #f8d3e2;
+      border-left: 5px solid #d65a9d;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      font-style: italic;
+      color: #af408a;
+      font-size: 1rem;
+    }
+    .simulator {
+      margin-top: 1.5rem;
+      background: white;
+      border: 2px dashed #f98bc1;
+      border-radius: 16px;
+      padding: 1.3rem 1.7rem;
+      box-shadow: 0 4px 14px rgba(214, 90, 157, 0.15);
+    }
+    .simulator input {
+      padding: 0.45rem;
+      width: 4.5rem;
+      font-size: 1.15rem;
+      border: 2px solid #f98bc1;
+      border-radius: 10px;
+      margin-right: 0.7rem;
+      text-align: center;
+      font-family: monospace;
+      color: #8a2e6a;
+      font-weight: 600;
+    }
+    .simulator button {
+      background-color: #d65a9d;
+      border: none;
+      color: white;
+      padding: 0.5rem 1.3rem;
+      font-size: 1.15rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .simulator button:hover {
+      background-color: #af408a;
+    }
+    .simulator-result {
+      margin-top: 1.2rem;
+      font-weight: 700;
+      font-family: monospace;
+      font-size: 1.25rem;
+      color: #8a2e6a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h2>🌸 Expresiones Radicales: La magia de las raíces 🌸</h2>
+    <p>Las expresiones radicales usan raíces para "deshacer" potencias, como la raíz cuadrada o raíz cúbica.</p>
+    <div class="example">Ejemplo: <code>√25 = 5</code> porque <code>5 × 5 = 25</code></div>
+    <div class="example">Ejemplo: <code>³√27 = 3</code> porque <code>3 × 3 × 3 = 27</code></div>
+    <div class="girly-tip">💖 Tip girly: Piensa en la raíz como el "ingrediente secreto" que, elevado varias veces, crea tu pastel favorito 🎂✨</div>
+
+    <div class="simulator">
+      <h3>Calcula la raíz</h3>
+      <label for="indiceRaiz">Índice (raíz n-ésima): </label>
+      <input type="number" id="indiceRaiz" placeholder="Ej. 2" min="2" max="5" />
+      <label for="numeroRaiz">Número radicando: </label>
+      <input type="number" id="numeroRaiz" placeholder="Ej. 16" min="1" />
+      <button onclick="calcularRaiz()">Calcular</button>
+      <div class="simulator-result" id="resultadoRaiz"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎲 Mini Juego Radical 🎲</h2>
+    <p>Adivina la raíz correcta y demuestra que eres la reina de las raíces 🌟</p>
+    <div class="simulator">
+      <p id="radicalMiniJuegoExpr" style="font-family: monospace; font-size: 1.3rem; font-weight: 700; color:#8a2e6a;"></p>
+      <input type="number" id="radicalMiniJuegoInput" placeholder="Tu respuesta" />
+      <button onclick="verificarRadicalMiniJuego()">¡Verificar!</button>
+      <div class="simulator-result" id="radicalMiniJuegoResultado"></div>
+      <button onclick="generarRadicalMiniJuego()" style="margin-top: 0.8rem; background-color:#f98bc1;">Nuevo reto</button>
+    </div>
+  </div>
+
+<script>
+  function calcularRaiz() {
+    const indice = Number(document.getElementById('indiceRaiz').value);
+    const numero = Number(document.getElementById('numeroRaiz').value);
+    const resDiv = document.getElementById('resultadoRaiz');
+
+    if (isNaN(indice) || isNaN(numero) || indice < 2 || numero < 1) {
+      resDiv.textContent = 'Porfa, escribe valores válidos (índice ≥ 2 y número positivo) 🙈';
+      return;
+    }
+    // Cálculo de raíz en JS usando potencia 1/indice
+    const resultado = Math.pow(numero, 1 / indice);
+
+    // Comprobar si resultado es entero (para raíces exactas)
+    if (Number.isInteger(resultado)) {
+      resDiv.textContent = `La raíz ${indice} de ${numero} es ${resultado}`;
+    } else {
+      resDiv.textContent = `La raíz ${indice} de ${numero} ≈ ${resultado.toFixed(3)} (no es exacta)`;
+    }
+  }
+
+  // Mini juego raíz
+  let radicalJuegoActual = null;
+
+  function generarRadicalMiniJuego() {
+    const indices = [2, 3, 4];
+    const indice = indices[Math.floor(Math.random() * indices.length)];
+    // Generar números que tengan raíz exacta
+    let base = Math.floor(Math.random() * 8) + 2; // base 2 a 9
+    const numero = Math.pow(base, indice);
+    radicalJuegoActual = { indice, base, numero };
+    document.getElementById('radicalMiniJuegoExpr').textContent = `√[${indice}](${numero}) = ?`;
+    document.getElementById('radicalMiniJuegoResultado').textContent = '';
+    document.getElementById('radicalMiniJuegoInput').value = '';
+  }
+
+  function verificarRadicalMiniJuego() {
+    const respuesta = Number(document.getElementById('radicalMiniJuegoInput').value);
+    const resDiv = document.getElementById('radicalMiniJuegoResultado');
+    if (isNaN(respuesta)) {
+      resDiv.textContent = 'Pon un número válido 🙈';
+      return;
+    }
+    if (respuesta === radicalJuegoActual.base) {
+      resDiv.textContent = '🎉 ¡Correcto! Eres una reina radical 👑✨';
+    } else {
+      resDiv.textContent = `❌ Casi... la respuesta correcta es ${radicalJuegoActual.base}`;
+    }
+  }
+
+  window.onload = () => {
+    generarRadicalMiniJuego();
+  };
+</script>
+
+</body>
+</html>
 
