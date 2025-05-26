@@ -56,7 +56,7 @@ body {
 
 .menu a:hover,
 .menu a.active {
-  background-color: #d32f2f;
+  background-color: #ffd0ea;
   border-radius: 5px;
 }
 
