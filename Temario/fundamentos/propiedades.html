@@ -1,1 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fundamentos: Aritmética</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background-color: #fff6fc;
+      color: #333;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    h1, h2, h3 {
+      color: #b83280;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #b83280;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+      padding: 1rem;
+      background-color: #ffeaf4;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(184, 50, 128, 0.15);
+    }
+
+    .emoji {
+      font-size: 1.4rem;
+      margin-right: 0.3rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    code {
+      background-color: #fff;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #b83280;
+    }
+
+    .example {
+      background: #fff;
+      border-left: 4px solid #b83280;
+      padding: 0.8rem 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    .girly {
+      background: #fdf0f5;
+      padding: 0.8rem 1rem;
+      border-left: 4px solid #ff66b2;
+      border-radius: 8px;
+      font-style: italic;
+      margin-top: 0.8rem;
+    }
+
+    .pink-title {
+      color: #ff66b2;
+      font-weight: bold;
+    }
+
+    .simulator {
+      margin-top: 1rem;
+      background: #fff;
+      border: 2px dashed #ff99cc;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .simulator input {
+      margin-right: 0.5rem;
+      padding: 0.3rem;
+    }
+
+    .simulator button {
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .simulator-result {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="section">
+  <h2>⚖️ Propiedades de las Operaciones</h2>
+</div>
+
+<!-- Conmutativa -->
+<div class="section">
+  <h3>🔄 Propiedad Conmutativa</h3>
+  <p>El orden de los números no cambia el resultado.</p>
+  <p><code>2 + 3 = 3 + 2</code> o <code>4 × 5 = 5 × 4</code></p>
+  <div class="girly">💡 Ejemplo: Si compras 2 donas primero y luego 3, es lo mismo que si compras 3 primero y luego 2. 🍩🍩🍩🍩🍩</div>
+  <div class="emoji">✨ Ejercicio:</div>
+  <ul>
+    <li>¿Cuál es el resultado de <code>7 + 9</code> y <code>9 + 7</code>? ¿Igualito, no?</li>
+    <li>Haz 3 expresiones con la propiedad conmutativa usando emojis: ejemplo: <code>🎀 + 💅 = 💅 + 🎀</code></li>
+  </ul>
+  <div class="simulator">
+    <p><strong>🎀 Mini juego: Verifica la conmutatividad</strong></p>
+    <input type="number" id="a1" placeholder="Número A">
+    <input type="number" id="b1" placeholder="Número B">
+    <button onclick="checkCommutative()">Comprobar</button>
+    <div class="simulator-result" id="result1"></div>
+  </div>
+</div>
+
+<!-- Asociativa -->
+<div class="section">
+  <h3>👯‍♀️ Propiedad Asociativa</h3>
+  <p>La forma en que agrupas los números no cambia el resultado.</p>
+  <p><code>(2 + 3) + 4 = 2 + (3 + 4)</code> o <code>(6 × 2) × 5 = 6 × (2 × 5)</code></p>
+  <div class="girly">💡 Ejemplo: Puedes envolver primero dos regalos, luego otro, o todos juntos... ¡igual tendrás 3 regalos listos! 🎁🎁🎁</div>
+  <div class="emoji">✨ Ejercicio:</div>
+  <ul>
+    <li>Resuelve <code>(1 + 2) + 6</code> y luego <code>1 + (2 + 6)</code></li>
+    <li>Inventa una "coreografía asociativa" con emojis: ejemplo: <code>(💄 + 💅) + 🎀 = 💄 + (💅 + 🎀)</code></li>
+  </ul>
+  <div class="simulator">
+    <p><strong>💄 Mini juego: Verifica la asociatividad</strong></p>
+    <input type="number" id="a2" placeholder="A">
+    <input type="number" id="b2" placeholder="B">
+    <input type="number" id="c2" placeholder="C">
+    <button onclick="checkAssociative()">Comprobar</button>
+    <div class="simulator-result" id="result2"></div>
+  </div>
+</div>
+
+<!-- Elemento Neutro -->
+<div class="section">
+  <h3>🌟 Elemento Neutro</h3>
+  <p>Hay números que no cambian nada cuando los usas en una operación:</p>
+  <p><code>5 + 0 = 5</code> (0 es neutro para la suma) <br> <code>6 × 1 = 6</code> (1 es neutro para la multiplicación)</p>
+  <div class="girly">💡 Ejemplo: Si no le agregas glitter extra a tu look, tu outfit sigue igual de icónico ✨👗</div>
+  <div class="emoji">✨ Ejercicio:</div>
+  <ul>
+    <li>Completa: <code>💅 + 0 = 💅</code>, <code>💄 × 1 = 💄</code></li>
+    <li>Encuentra más combinaciones con el 0 y el 1 que no cambien el resultado. ¡Hazlo girly!</li>
+  </ul>
+</div>
+
+<!-- Distributiva -->
+<div class="section">
+  <h3>🎁 Propiedad Distributiva</h3>
+  <p>Multiplicar por una suma es igual a multiplicar cada término por separado y luego sumar:</p>
+  <p><code>2 × (3 + 4) = 2×3 + 2×4 = 6 + 8 = 14</code></p>
+  <div class="girly">💡 Ejemplo: Tienes dos bolsas, cada una con 3 labiales y 4 delineadores. ¿Cuántos productos hay en total? 💄💋✏️</div>
+  <div class="emoji">✨ Ejercicio:</div>
+  <ul>
+    <li>Resuelve <code>3 × (2 + 5)</code> y luego usando la propiedad distributiva.</li>
+    <li>Crea tu propia expresión de estilo make-up usando la propiedad: <br><code>💋 × (💄 + 🎀)</code> = <code>💋×💄 + 💋×🎀</code></li>
+  </ul>
+  <div class="simulator">
+    <p><strong>💋 Mini juego: Usa la propiedad distributiva</strong></p>
+    <input type="number" id="a4" placeholder="A">
+    <input type="number" id="b4" placeholder="B">
+    <input type="number" id="c4" placeholder="C">
+    <button onclick="checkDistributive()">Comprobar</button>
+    <div class="simulator-result" id="result4"></div>
+  </div>
+</div>
+
+<!-- Cierre motivador -->
+<div class="section girly">
+  🎀 ¿Te suena a álgebra? Yup. Pero aquí lo ves como el backstage de todo lo que harás después. 📐✨<br>
+  💖 Consejo glam: Entender estas propiedades te da superpoderes algebraicos. Usa estas reglas como tus brochas favoritas para transformar cualquier expresión en algo fabuloso.
+</div>
+
+<script>
+function checkCommutative() {
+  const a = parseFloat(document.getElementById('a1').value);
+  const b = parseFloat(document.getElementById('b1').value);
+  const sum1 = a + b;
+  const sum2 = b + a;
+  document.getElementById('result1').textContent = `${a} + ${b} = ${sum1}, ${b} + ${a} = ${sum2}. ¿Igual? ${sum1 === sum2 ? '¡Sí, glamoroso!' : 'Ups, revisa.'}`;
+}
+
+function checkAssociative() {
+  const a = parseFloat(document.getElementById('a2').value);
+  const b = parseFloat(document.getElementById('b2').value);
+  const c = parseFloat(document.getElementById('c2').value);
+  const group1 = (a + b) + c;
+  const group2 = a + (b + c);
+  document.getElementById('result2').textContent = `(${a} + ${b}) + ${c} = ${group1}, ${a} + (${b} + ${c}) = ${group2}. ¿Igual? ${group1 === group2 ? '¡Sí, diva matemática!' : 'Ups, revisa.'}`;
+}
+
+function checkDistributive() {
+  const a = parseFloat(document.getElementById('a4').value);
+  const b = parseFloat(document.getElementById('b4').value);
+  const c = parseFloat(document.getElementById('c4').value);
+  const left = a * (b + c);
+  const right = a * b + a * c;
+  document.getElementById('result4').textContent = `${a} × (${b} + ${c}) = ${left}, ${a}×${b} + ${a}×${c} = ${right}. ¿Igual? ${left === right ? '¡Perfecto, lo lograste!' : 'Hmm, inténtalo de nuevo.'}`;
+}
+</script>
+
+</body>
+</html>
 
