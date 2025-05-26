@@ -1,245 +1,107 @@
-/* Estilos generales */
+/* Fuentes */
 body {
   font-family: 'Raleway', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-  color: #444;
-  line-height: 1.6;
+  background-color: #fff0f5;
+  color: #4a154b;
 }
 
-/* Menú de navegación */
+/* Navegación */
 .menu {
-  background-color: #ff0a8c;
-  background-image: linear-gradient(315deg, #ff0a8c 0%, #ffa4d4 74%);
-  padding: 10px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background-color: #ffe3f0;
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.menu-container {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.menu ul {
+.menu-container ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 0;
+  padding-left: 0;
   margin: 0;
 }
 
-.menu li {
-  margin: 0 15px;
+.menu-container li {
+  margin: 0 1.5rem;
 }
 
-.menu a {
-  color: #fff8fc !important;
+.menu-container a {
   text-decoration: none;
+  color: #d63384;
   font-weight: bold;
-  font-size: 1.1em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 15px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  transition: color 0.3s;
 }
 
-.menu a:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
+.menu-container a:hover,
+.menu-container a.active {
+  color: #ad1457;
 }
 
-/* Sección principal de bienvenida */
-.welcome-section {
-  width: 90%;
+/* Título principal */
+main h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  color: #d63384;
+  font-family: 'Cal Sans', sans-serif;
+}
+
+/* Secciones del temario */
+section {
   max-width: 800px;
-  margin: 60px auto;
-  background: #fff;
-  padding: 40px;
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  animation: fadeIn 1s ease-out;
+  margin: 2rem auto;
+  background-color: #fff8fb;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(214, 51, 132, 0.1);
 }
 
-.welcome-section h1 {
-  font-family: 'Cal Sans', sans-serif;
-  font-size: 1.8em;
-  color: #000;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  letter-spacing: 3px;
+section h2 {
+  font-size: 1.8rem;
+  color: #b03060;
+  margin-bottom: 1rem;
 }
 
-.welcome-section p {
-  font-size: 1.2em;
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-
-/* Sección de temario */
-.temario-section {
-  width: 90%;
-  max-width: 900px;
-  margin: 40px auto;
-  background: #ffffff;
-  padding: 35px;
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 1s ease-out;
-}
-
-.temario-section h1 {
-  font-family: 'Cal Sans', sans-serif;
-  font-size: 2.5em;
-  color: #000;
-  margin-bottom: 30px;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  letter-spacing: 3px;
-}
-
-.tema-group {
-  background-color: rgba(255, 10, 140, 0.05);
-  border-radius: 15px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border-left: 4px solid #ffa4d4;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tema-group:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.tema-group h2 {
-  font-family: 'Cal Sans', sans-serif;
-  color: #ff0a8c;
-  margin-top: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  letter-spacing: 1.5px;
-}
-
-.subtema {
-  margin: 1.5rem 0;
-  padding-left: 15px;
-  border-left: 2px dashed #ffa4d4;
-}
-
-.subtema h3 {
-  color: #ff0a8c;
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: 2px;
-}
-
-.subtema ul {
-  list-style-type: none;
+section ul {
+  list-style: none;
   padding-left: 0;
 }
 
-.subtema li {
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin-bottom: 12px;
-  padding-left: 30px;
-  position: relative;
+section li {
+  margin-bottom: 0.6rem;
 }
 
-.subtema li::before {
-  content: "→";
-  color: #ff0a8c;
-  position: absolute;
-  left: 10px;
+section a {
+  text-decoration: none;
+  color: #800040;
+  transition: color 0.3s;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+section a:hover {
+  color: #ff69b4;
+  text-decoration: underline;
 }
 
-/* Responsive para tablets */
-@media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column;
-  }
-
-  .menu li {
-    margin: 10px 0;
-  }
-
-  .welcome-section,
-  .temario-section {
-    padding: 30px 20px;
-  }
-
-  .welcome-section h1,
-  .temario-section h1 {
-    font-size: 2.2em;
-  }
-
-  .welcome-section p,
-  .temario-section li {
-    font-size: 1.1em;
-  }
-
-  .tema-group h2 {
-    font-size: 1.8em;
-  }
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #ffe3f0;
+  color: #4a154b;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  border-top: 2px solid #ffb6c1;
 }
 
-/* Responsive extra para celulares */
-@media (max-width: 480px) {
-  .menu a {
-    font-size: 1em;
-    padding: 10px 20px;
-  }
-
-  .welcome-section,
-  .temario-section {
-    margin: 30px 10px;
-    padding: 20px 15px;
-  }
-
-  .temario-section h1 {
-    font-size: 2em;
-  }
-
-  .tema-group h2 {
-    font-size: 1.5em;
-  }
-
-  .subtema h3 {
-    font-size: 1.2em;
-  }
-  .tema-group {
+/* Transición al hacer scroll (opcional si usas clases .visible) */
+.tema-group {
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease-in-out;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .tema-group.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
 }
