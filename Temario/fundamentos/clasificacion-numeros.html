@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fundamentos: Aritmética</title>
+  <title>Clasificación de Números</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -84,145 +84,73 @@
       color: #ff66b2;
       font-weight: bold;
     }
-  </style>
-</head>
-<body>
-  <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fundamentos: Aritmética</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background-color: #fff6fc;
-      color: #333;
-      line-height: 1.6;
-      padding: 2rem;
-    }
 
-    h1, h2, h3 {
-      color: #b83280;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #b83280;
-      padding-bottom: 0.5rem;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .section {
-      margin-bottom: 2.5rem;
-      padding: 1rem;
-      background-color: #ffeaf4;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(184, 50, 128, 0.15);
-    }
-
-    .emoji {
-      font-size: 1.4rem;
-      margin-right: 0.3rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    code {
-      background-color: #fff;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: monospace;
-      color: #b83280;
-    }
-
-    .example {
-      background: #fff;
-      border-left: 4px solid #b83280;
-      padding: 0.8rem 1rem;
-      margin-top: 1rem;
-      border-radius: 8px;
-      font-style: italic;
-    }
-
-    .girly {
-      background: #fdf0f5;
-      padding: 0.8rem 1rem;
-      border-left: 4px solid #ff66b2;
-      border-radius: 8px;
-      font-style: italic;
-      margin-top: 0.8rem;
-    }
-
-    .pink-title {
-      color: #ff66b2;
+    button {
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
       font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e055a0;
     }
   </style>
 </head>
 <body>
   <div class="section">
-  <h2>🎮 Juego: ¿A qué conjunto pertenece?</h2>
-  <p>Adivina a qué conjunto pertenece el siguiente número. ¡Demuestra tus superpoderes matemáticos! ✨🧠</p>
+    <h2>🎮 Juego: ¿A qué conjunto pertenece?</h2>
+    <p>Adivina a qué conjunto pertenece el siguiente número. ¡Demuestra tus superpoderes matemáticos! ✨🧠</p>
 
-  <div class="girly">
-    <button onclick="generarNumero()">🎲 Generar Número</button>
-    <p id="numero">Haz clic en el botón para empezar</p>
+    <div class="girly">
+      <button onclick="generarNumero()">🎲 Generar Número</button>
+      <p id="numero">Haz clic en el botón para empezar</p>
 
-    <div>
-      <button onclick="verificarRespuesta('N')">ℕ Naturales</button>
-      <button onclick="verificarRespuesta('Z')">ℤ Enteros</button>
-      <button onclick="verificarRespuesta('Q')">ℚ Racionales</button>
-      <button onclick="verificarRespuesta('I')">Irracionales</button>
+      <div>
+        <button onclick="verificarRespuesta('N')">ℕ Naturales</button>
+        <button onclick="verificarRespuesta('Z')">ℤ Enteros</button>
+        <button onclick="verificarRespuesta('Q')">ℚ Racionales</button>
+        <button onclick="verificarRespuesta('I')">Irracionales</button>
+      </div>
+      <p id="resultado"></p>
     </div>
-    <p id="resultado"></p>
   </div>
-</div>
 
-<script>
-  const numeros = [
-    { valor: 7, tipo: 'N' },
-    { valor: -3, tipo: 'Z' },
-    { valor: 0.75, tipo: 'Q' },
-    { valor: '√2', tipo: 'I' },
-    { valor: 0, tipo: 'Z' },
-    { valor: 'π', tipo: 'I' },
-    { valor: -1/2, tipo: 'Q' },
-    { valor: 5, tipo: 'N' },
-  ];
+  <script>
+    const numeros = [
+      { valor: 7, tipo: 'N' },
+      { valor: -3, tipo: 'Z' },
+      { valor: 0.75, tipo: 'Q' },
+      { valor: '√2', tipo: 'I' },
+      { valor: 0, tipo: 'Z' },
+      { valor: 'π', tipo: 'I' },
+      { valor: -0.5, tipo: 'Q' },
+      { valor: 5, tipo: 'N' },
+    ];
 
-  let numeroActual = null;
+    let numeroActual = null;
 
-  function generarNumero() {
-    const random = Math.floor(Math.random() * numeros.length);
-    numeroActual = numeros[random];
-    document.getElementById("numero").textContent = `Número: ${numeroActual.valor}`;
-    document.getElementById("resultado").textContent = '';
-  }
-
-  function verificarRespuesta(respuesta) {
-    if (!numeroActual) return;
-
-    if (respuesta === numeroActual.tipo) {
-      document.getElementById("resultado").textContent = "✅ ¡Correcto! Muy bien, queen 👑";
-    } else {
-      document.getElementById("resultado").textContent = "❌ Uy, intenta de nuevo 💔";
+    function generarNumero() {
+      const random = Math.floor(Math.random() * numeros.length);
+      numeroActual = numeros[random];
+      document.getElementById("numero").textContent = `Número: ${numeroActual.valor}`;
+      document.getElementById("resultado").textContent = '';
     }
-  }
-</script>
 
+    function verificarRespuesta(respuesta) {
+      if (!numeroActual) return;
+
+      if (respuesta === numeroActual.tipo) {
+        document.getElementById("resultado").textContent = "✅ ¡Correcto! Muy bien, queen 👑";
+      } else {
+        document.getElementById("resultado").textContent = "❌ Uy, intenta de nuevo 💔";
+      }
+    }
+  </script>
+</body>
+</html>
