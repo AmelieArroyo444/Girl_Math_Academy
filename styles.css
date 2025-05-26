@@ -11,7 +11,7 @@ body {
 
 /* Menú de navegación */
 .menu {
-  background-color: #f44336; /* rojo vibrante */
+  background-color: #ff008b; /* rojo vibrante */
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
