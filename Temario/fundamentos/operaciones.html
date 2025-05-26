@@ -84,35 +84,93 @@
       color: #ff66b2;
       font-weight: bold;
     }
+
+    input, select, button {
+      font-family: 'Outfit', sans-serif;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 2px solid #ff66b2;
+      margin: 0.5rem 0;
+    }
+
+    button {
+      background-color: #ffb3d9;
+      cursor: pointer;
+      font-weight: bold;
+      color: #fff;
+      border: none;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff66b2;
+    }
+
+    #resultado {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #b83280;
+      font-weight: bold;
+    }
   </style>
 </head>
-<div class="section">
+<body>
+
+  <div class="section">
     <h2>💖 Ejercicios Girly con Operaciones Básicas</h2>
 
-    <h3 class="emoji">➕ Suma</h3>
-    <ul>
-      <li>👠 Tienes 4 pares de zapatos rosa y compras 3 más. ¿Cuántos pares tienes en total?</li>
-      <li>💅 Tienes 7 esmaltes glitter y te regalan 5 más en tu cumple. ¿Cuántos tienes ahora?</li>
-    </ul>
+    <h3 class="emoji">🧠 ¡Simulador Cute de Aritmética!</h3>
 
-    <h3 class="emoji">➖ Resta</h3>
-    <ul>
-      <li>👜 Llevabas $500 a la tienda y gastaste $275 en maquillaje. ¿Cuánto te queda?</li>
-      <li>🎀 Tienes 10 stickers kawaii, pero regalas 4 a tu amiga. ¿Con cuántos te quedas?</li>
-    </ul>
+    <label>✨ Elige una operación:</label><br/>
+    <select id="operacion">
+      <option value="suma">➕ Suma</option>
+      <option value="resta">➖ Resta</option>
+      <option value="multiplicacion">✖️ Multiplicación</option>
+      <option value="division">➗ División</option>
+    </select><br/>
 
-    <h3 class="emoji">✖️ Multiplicación</h3>
-    <ul>
-      <li>👗 Tienes 5 faldas y cada una combina con 3 blusas. ¿Cuántos outfits puedes armar?</li>
-      <li>🌸 En tu planner, pegas 2 stickers por día durante 7 días. ¿Cuántos stickers usas?</li>
-    </ul>
+    <label>💅 Ingresa el primer número:</label><br/>
+    <input type="number" id="numero1" placeholder="Ej. 7"><br/>
 
-    <h3 class="emoji">➗ División</h3>
-    <ul>
-      <li>🍰 Compraste un pastel de 12 porciones y lo compartes con 3 amigas (contándote a ti). ¿Cuántas porciones le tocan a cada una?</li>
-      <li>🧴 Tienes 18 muestras de perfume y quieres repartirlas en kits de 6. ¿Cuántos kits puedes hacer?</li>
-    </ul>
+    <label>🎀 Ingresa el segundo número:</label><br/>
+    <input type="number" id="numero2" placeholder="Ej. 3"><br/>
 
-    <div class="girly">💫 Usa colores, dibuja o haz stickers para resolverlos. ¡La aritmética puede ser tan aesthetic como tú quieras! 💗📐🫧</div>
+    <button onclick="calcular()">💫 ¡Calcular!</button>
+
+    <div id="resultado" class="girly">Aquí aparecerá tu resultado glitter ✨</div>
   </div>
 
+  <script>
+    function calcular() {
+      const op = document.getElementById("operacion").value;
+      const n1 = parseFloat(document.getElementById("numero1").value);
+      const n2 = parseFloat(document.getElementById("numero2").value);
+      let res;
+
+      if (isNaN(n1) || isNaN(n2)) {
+        res = "💔 Ingresa números válidos, bella.";
+      } else {
+        switch (op) {
+          case "suma":
+            res = `💖 Resultado: ${n1 + n2}`;
+            break;
+          case "resta":
+            res = `💖 Resultado: ${n1 - n2}`;
+            break;
+          case "multiplicacion":
+            res = `💖 Resultado: ${n1 * n2}`;
+            break;
+          case "division":
+            res = n2 !== 0 ? `💖 Resultado: ${(n1 / n2).toFixed(2)}` : "🚫 No se puede dividir entre cero, mi ciela.";
+            break;
+          default:
+            res = "❓ Selecciona una operación válida.";
+        }
+      }
+
+      document.getElementById("resultado").innerText = res;
+    }
+  </script>
+
+</body>
+</html>
