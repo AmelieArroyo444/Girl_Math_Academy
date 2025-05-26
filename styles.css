@@ -231,4 +231,15 @@ body {
   .subtema h3 {
     font-size: 1.2em;
   }
+  .tema-group {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-in-out;
+}
+
+.tema-group.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 }
