@@ -1,408 +1,220 @@
 <!DOCTYPE html>
-<html lang="es" class="is-preload">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aprende matemáticas fundamentales de manera fácil y divertida con Girl Math Academy">
   <title>Girl Math Academy</title>
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <style>
     /* Estilos base */
     :root {
-      --rosa-pastel: #ffd2eb;
-      --rosa-neon: #ff56b5;
-      --rosa-oscuro: #f83ca6;
-      --texto-blanco: #ffffff;
+      --rosa-pastel: #ffb6c1;
+      --rosa-neon: #ff69b4;
+      --rosa-oscuro: #db7093;
+      --bg-oscuro: #121212;
     }
     
-    body {
-      background-color: #000;
-      color: var(--rosa-pastel);
-      font-family: 'Raleway', sans-serif;
-      line-height: 1.6;
+    body, html {
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Raleway', sans-serif;
+      background-color: var(--bg-oscuro);
+      color: var(--rosa-pastel);
     }
     
-    h1, h2, h3 {
+    /* Animación de fondo */
+    #bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+    }
+    
+    /* Contenedor principal */
+    #wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    
+    /* Logo */
+    .logo {
+      text-align: center;
+      margin-bottom: 2rem;
+      transform: scale(0);
+      animation: scaleIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.5s;
+    }
+    
+    @keyframes scaleIn {
+      to { transform: scale(1); }
+    }
+    
+    .logo img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 15px var(--rosa-neon));
+    }
+    
+    /* Contenido central */
+    .content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+      transform: translateY(50px);
+      opacity: 0;
+      animation: slideUp 1s ease-out forwards 1s;
+    }
+    
+    @keyframes slideUp {
+      to { 
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    h1 {
       font-family: 'Cal Sans', sans-serif;
       color: var(--rosa-neon);
-      text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
     }
     
-    a {
+    p {
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    
+    /* Menú de navegación */
+    nav {
+      margin-top: 3rem;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: slideUp 1s ease-out forwards 1.5s;
+    }
+    
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    
+    nav li a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       color: var(--rosa-pastel);
-      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      border: 1px solid var(--rosa-oscuro);
       transition: all 0.3s ease;
     }
     
-    a:hover {
-      color: var(--rosa-neon);
-      text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+    nav li a:hover {
+      background-color: rgba(255, 105, 180, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
     }
     
-    /* Animación de partículas */
+    /* Efecto de partículas */
     #particles-js {
-      position: fixed;
+      position: absolute;
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
       z-index: -1;
-      background-color: #000;
-    }
-    
-    /* Menú de navegación */
-    .menu {
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(5px);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--rosa-oscuro);
-    }
-    
-    .menu-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-    }
-    
-    .menu ul {
-      display: flex;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      gap: 2rem;
-    }
-    
-    .menu li a {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      position: relative;
-    }
-    
-    .menu li a::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--rosa-oscuro);
-      color: white;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-    
-    .menu li a:hover::after {
-      opacity: 1;
-    }
-    
-    .menu li a:hover {
-      background: rgba(255, 182, 193, 0.1);
-    }
-    
-    .menu li a.active {
-      color: var(--rosa-neon);
-      font-weight: bold;
-    }
-    
-    /* Contenido principal */
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards 0.5s;
-    }
-    
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .welcome-section {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 15px;
-      border: 1px solid var(--rosa-oscuro);
-      box-shadow: 0 0 30px rgba(219, 112, 147, 0.2);
-      backdrop-filter: blur(5px);
-    }
-    
-    .logo {
-      margin-bottom: 2rem;
-    }
-    
-    .logo i {
-      font-size: 5rem;
-      color: var(--rosa-neon);
-      animation: pulse 2s ease infinite, glow 3s ease infinite alternate;
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    
-    @keyframes glow {
-      from { text-shadow: 0 0 10px var(--rosa-pastel); }
-      to { text-shadow: 0 0 20px var(--rosa-neon); }
-    }
-    
-    .welcome-content p {
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: fadeInUp 0.5s ease forwards;
-    }
-    
-    .welcome-content p:nth-child(1) { animation-delay: 0.8s; }
-    .welcome-content p:nth-child(2) { animation-delay: 1s; }
-    .welcome-content p:nth-child(3) { animation-delay: 1.2s; }
-    .welcome-content p:nth-child(4) { animation-delay: 1.4s; }
-    .welcome-content p:nth-child(5) { animation-delay: 1.6s; }
-    .welcome-content p:nth-child(6) { animation-delay: 1.8s; }
-    .welcome-content p:nth-child(7) { animation-delay: 2s; }
-    
-    /* Botones */
-    .btn {
-      display: inline-block;
-      background: linear-gradient(45deg, var(--rosa-oscuro), var(--rosa-neon));
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 30px;
-      margin-top: 1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
-    }
-    
-    .btn:active {
-      transform: translateY(1px);
-    }
-    
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: 0.5s;
-    }
-    
-    .btn:hover::before {
-      left: 100%;
-    }
-    
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
-      border-top: 1px solid var(--rosa-oscuro);
-    }
-    
-    .footer-content p {
-      margin: 0;
-    }
-    
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    
-    .social-icon {
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    
-    .social-icon:hover {
-      transform: translateY(-5px) scale(1.2);
-      color: var(--rosa-neon);
-    }
-    
-    /* Efecto de precarga */
-    body.is-preload * {
-      animation: none !important;
-      transition: none !important;
     }
   </style>
 </head>
-<body class="is-preload">
-  <!-- Fondo de partículas -->
+<body>
+  <!-- Fondo animado -->
+  <div id="bg"></div>
   <div id="particles-js"></div>
-
-  <!-- Menú de Navegación -->
-  <nav class="menu">
-    <div class="menu-container">
+  
+  <!-- Contenido principal -->
+  <div id="wrapper">
+    <div class="logo">
+      <!-- Reemplaza con tu imagen -->
+      <img src="logo-girlmath.png" alt="Girl Math Academy">
+    </div>
+    
+    <div class="content">
+      <h1>GIRL MATH ACADEMY</h1>
+      <p>Domina las matemáticas con un toque femenino y descubre cómo transformar números en poder creativo.</p>
+    </div>
+    
+    <nav>
       <ul>
-        <li><a href="index.html" class="active" data-tooltip="Inicio"><i class="fas fa-home"></i> Inicio</a></li>
-        <li><a href="Temario/temario.html" data-tooltip="Temario"><i class="fas fa-book-open"></i> Temario</a></li>
-        <li><a href="redes.html" data-tooltip="Redes"><i class="fas fa-heart"></i> Redes</a></li>
-        <li><a href="creadoras.html" data-tooltip="Creadoras"><i class="fas fa-envelope"></i> Creadoras</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="temario.html"><i class="fas fa-book-open"></i> Temario</a></li>
+        <li><a href="redes.html"><i class="fas fa-heart"></i> Redes</a></li>
+        <li><a href="creadoras.html"><i class="fas fa-users"></i> Creadoras</a></li>
       </ul>
-    </div>
-  </nav>
-
-  <!-- Contenido Principal -->
-  <main>
-    <section class="welcome-section">
-      <div class="logo">
-        <i class="fas fa-calculator"></i>
-      </div>
-      <h1>🎀 BIENVENIDAS A GIRL MATH ACADEMY 🎀</h1>
-      
-      <div class="welcome-content">
-        <p>¡Chicas, este es el momento perfecto para adentrarse en el fascinante mundo de las matemáticas! 🌟📐💓</p>
-        <p>En una era donde los datos y la tecnología están transformando todo a nuestro alrededor, las herramientas que nos brindan las matemáticas, la estadística, la computación y la programación son esenciales para entender lo que sucede a nuestro alrededor. 🤩🪐</p>
-        <p>Sabemos que las matemáticas a veces pueden parecer complicadas, ¡pero no te preocupes! Con los ejemplos de esta página, todo se vuelve mucho más fácil de entender. 📚✨</p>
-        <p>¡Vas a ver cómo cada concepto se conecta y te va a sorprender lo lejos que puedes llegar!</p>
-        <p>Estos conocimientos no solo forman la base de modelos científicos poderosos, sino que también nos permiten crear cambios reales en áreas clave como la salud mental, la educación y las políticas públicas. 💖💡🧠</p>
-        <p>Imagina diseñar soluciones que puedan prever tendencias de consumo, influir en redes sociales o incluso desarrollar nuevas tecnologías. Todo esto es posible gracias a las habilidades que estás a punto de dominar. Las matemáticas están en todas partes, ¡y tú puedes ser parte de esta transformación! 🌸💫📊✨</p>
-        <p>No tengas miedo de sumergirte en este universo lleno de posibilidades. ¡El futuro está en nuestras manos! 🌟💖🚀</p>
-      </div>
-      
-      <div class="call-to-action">
-        <a href="Temario/temario.html" class="btn" id="main-btn">Comenzar a aprender</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- Pie de página -->
-  <footer>
-    <div class="footer-content">
-      <div class="social-icons">
-        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-      </div>
-      <p> © 2025 Girl Math Academy - Amélie Arroyo & Valentina Reyes <3 </p>
-    </div>
-  </footer>
+    </nav>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    // Elimina la clase is-preload cuando la página se carga
-    window.addEventListener('load', function() {
-      document.body.classList.remove('is-preload');
-      
-      // Inicializa las partículas
+    // Inicialización de partículas
+    document.addEventListener('DOMContentLoaded', function() {
       particlesJS("particles-js", {
         particles: {
-          number: { value: 80, density: { enable: true, value_area: 800 } },
-          color: { value: "#ffb6c1" },
-          shape: { 
-            type: ["circle", "triangle"],
-            stroke: { width: 0, color: "#ff69b4" },
-            polygon: { nb_sides: 5 }
-          },
-          opacity: {
-            value: 0.5,
-            random: true,
-            anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
-          },
-          size: {
-            value: 3,
-            random: true,
-            anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
-          },
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#db7093",
-            opacity: 0.4,
-            width: 1
+          number: { value: 60, density: { enable: true, value_area: 800 } },
+          color: { value: "#ff69b4" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: { 
+            enable: true, 
+            distance: 150, 
+            color: "#db7093", 
+            opacity: 0.4, 
+            width: 1 
           },
           move: {
             enable: true,
             speed: 2,
             direction: "none",
             random: true,
-            straight: false,
             out_mode: "bounce",
-            bounce: true,
-            attract: { enable: true, rotateX: 600, rotateY: 1200 }
+            bounce: true
           }
         },
         interactivity: {
           detect_on: "canvas",
           events: {
             onhover: { enable: true, mode: "repulse" },
-            onclick: { enable: true, mode: "push" },
-            resize: true
-          },
-          modes: {
-            repulse: { distance: 100, duration: 0.4 },
-            push: { particles_nb: 4 }
+            onclick: { enable: true, mode: "push" }
           }
-        },
-        retina_detect: true
+        }
       });
-    });
-
-    // Efecto confeti al hacer clic en el botón principal
-    document.getElementById('main-btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#ffb6c1', '#ff69b4', '#db7093', '#ff9ff3']
-      });
+      
+      // Efecto de carga completa
       setTimeout(() => {
-        window.location.href = this.href;
-      }, 1000);
+        document.body.style.overflow = 'auto';
+      }, 2500);
     });
-
-    // Efecto de escritura en el título
-    const titulo = document.querySelector('h1');
-    const textoOriginal = titulo.textContent;
-    titulo.textContent = '';
-    
-    let i = 0;
-    function typeWriter() {
-      if (i < textoOriginal.length) {
-        titulo.textContent += textoOriginal.charAt(i);
-        i++;
-        setTimeout(typeWriter, 50);
-      }
-    }
-    setTimeout(typeWriter, 1500);
   </script>
 </body>
 </html>
