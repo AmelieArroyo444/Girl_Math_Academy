@@ -1,125 +1,133 @@
-<!DOCTYPE HTML>
-<!--
-    Girl Math Academy
-    Adaptado desde Dimension by HTML5 UP
-    Free for personal and commercial use under the CCA 3.0 license
--->
-<html>
+<!DOCTYPE html>
+<html lang="es" class="is-preload">
 <head>
-    <title>Girl Math Academy</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprende matemáticas de manera fácil y divertida con Girl Math Academy">
+  <title>Girl Math Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Animación de fondo */
+    #bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #ffcce6 0%, #ff99cc 50%, #ff6699 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Efecto de precarga */
+    body.is-preload * {
+      animation: none !important;
+      transition: none !important;
+    }
+    
+    /* Animación de entrada */
+    .welcome-section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards 0.5s;
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Estilo para el logo animado */
+    .logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .logo i {
+      font-size: 5rem;
+      color: #ff6699;
+      animation: pulse 2s ease infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
 </head>
 <body class="is-preload">
+  <!-- Fondo animado -->
+  <div id="bg"></div>
 
-    <!-- Wrapper -->
-    <div id="wrapper">
-
-        <!-- Header -->
-        <header id="header">
-            <div class="logo">
-                <img src="assets/logo.png" alt="GMA Logo" style="max-width: 50px;">
-            </div>
-            <div class="content">
-                <div class="inner">
-                    <h1>Girl Math Academy</h1>
-                    <p>Bienvenides a nuestro rinconcito donde las mates se vuelven dulces, claras y accesibles 🍬📐</p>
-                </div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#intro">Inicio</a></li>
-                    <li><a href="#temario">Temario</a></li>
-                    <li><a href="#creadoras">Creadoras</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Main -->
-        <div id="main">
-
-            <!-- Intro -->
-            <article id="intro">
-                <h2 class="major">¡Bienvenides!</h2>
-                <span class="image main"><img src="assets/banner.jpg" alt="Girl Math Academy"></span>
-                <p>Este es un lugar diseñado con 💖 para que aprendas matemáticas paso a paso, desde lo básico hasta niveles avanzados. Combina aprendizaje y un estilo girly y accesible.</p>
-            </article>
-
-            <!-- Temario -->
-            <article id="temario">
-                <h2 class="major">Temario</h2>
-                <p>Explora nuestras secciones de estudio:</p>
-                <ul class="alt">
-                    <li><a href="temario/fundamentos/aritmetica.html">Fundamentos</a></li>
-                    <li><a href="temario/algebra/ecuaciones-lineales.html">Álgebra</a></li>
-                    <li><a href="temario/geometria/funciones-trigonometricas.html">Geometría</a></li>
-                    <li><a href="temario/logica/tablas-verdad.html">Lógica</a></li>
-                    <li><a href="temario/estadistica/probabilidad-basica.html">Estadística</a></li>
-                    <li><a href="temario/algebra-lineal/operaciones-matrices.html">Álgebra Lineal</a></li>
-                    <li><a href="temario/computacion/machine-learning.html">Computación</a></li>
-                    <li><a href="temario/avanzados/limites-derivadas.html">Avanzados</a></li>
-                </ul>
-            </article>
-
-            <!-- Creadoras -->
-            <article id="creadoras">
-                <h2 class="major">Sobre nosotras</h2>
-                <span class="image main"><img src="assets/creadoras.jpg" alt="Creadoras"></span>
-                <p>Somos un equipo apasionado por la educación, comprometidas con crear un espacio inclusivo para que todas las personas aprendan matemáticas con confianza, estilo y claridad.</p>
-            </article>
-
-            <!-- Contact -->
-            <article id="contact">
-                <h2 class="major">Contacto</h2>
-                <form method="post" action="#">
-                    <div class="fields">
-                        <div class="field half">
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" placeholder="Tu nombre" />
-                        </div>
-                        <div class="field half">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" placeholder="tu@correo.com" />
-                        </div>
-                        <div class="field">
-                            <label for="message">Mensaje</label>
-                            <textarea name="message" id="message" rows="4" placeholder="¡Escríbenos!"></textarea>
-                        </div>
-                    </div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Enviar mensaje" class="primary" /></li>
-                        <li><input type="reset" value="Limpiar" /></li>
-                    </ul>
-                </form>
-                <ul class="icons">
-                    <li><a href="redes.html" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="redes.html" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="redes.html" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="redes.html" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                </ul>
-            </article>
-
-        </div>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <p>&copy; 2025 Girl Math Academy. Diseñado con 💖 por nosotras.</p>
-        </footer>
-
+  <!-- Menú de Navegación -->
+  <nav class="menu">
+    <div class="menu-container">
+      <ul>
+        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="Temario/temario.html"><i class="fas fa-book-open"></i> Temario</a></li>
+        <li><a href="redes.html"><i class="fas fa-heart"></i> Redes</a></li>
+        <li><a href="creadoras.html"><i class="fas fa-envelope"></i> Creadoras</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- BG -->
-    <div id="bg"></div>
+  <!-- Contenido Principal -->
+  <main>
+    <section class="welcome-section">
+      <div class="logo">
+        <i class="fas fa-calculator"></i>
+      </div>
+      <h1>🎀 BIENVENIDAS A GIRL MATH ACADEMY 🎀</h1>
+      
+      <div class="welcome-content">
+        <p>¡Chicas, este es el momento perfecto para adentrarse en el fascinante mundo de las matemáticas! 🌟📐💓</p>
+        <p>En una era donde los datos y la tecnología están transformando todo a nuestro alrededor, las herramientas que nos brindan las matemáticas, la estadística, la computación y la programación son esenciales para entender lo que sucede a nuestro alrededor. 🤩🪐</p>
+        <p>Sabemos que las matemáticas a veces pueden parecer complicadas, ¡pero no te preocupes! Con los ejemplos de esta página, todo se vuelve mucho más fácil de entender. 📚✨</p>
+        <p>¡Vas a ver cómo cada concepto se conecta y te va a sorprender lo lejos que puedes llegar!</p>
+        <p>Estos conocimientos no solo forman la base de modelos científicos poderosos, sino que también nos permiten crear cambios reales en áreas clave como la salud mental, la educación y las políticas públicas. 💖💡🧠</p>
+        <p>Imagina diseñar soluciones que puedan prever tendencias de consumo, influir en redes sociales o incluso desarrollar nuevas tecnologías. Todo esto es posible gracias a las habilidades que estás a punto de dominar. Las matemáticas están en todas partes, ¡y tú puedes ser parte de esta transformación! 🌸💫📊✨</p>
+        <p>No tengas miedo de sumergirte en este universo lleno de posibilidades. ¡El futuro está en nuestras manos! 🌟💖🚀</p>
+      </div>
+      
+      <div class="call-to-action">
+        <a href="Temario/temario.html" class="btn">Comenzar a aprender</a>
+      </div>
+    </section>
+  </main>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+  <!-- Pie de página -->
+  <footer>
+    <div class="footer-content">
+      <p> © 2025 Girl Math Academy - Amélie Arroyo & Valentina Reyes <3 </p>
+    </div>
+  </footer>
 
+  <!-- Scripts para la animación -->
+  <script>
+    // Elimina la clase is-preload cuando la página se carga
+    window.addEventListener('load', function() {
+      document.body.classList.remove('is-preload');
+    });
+    
+    // Opcional: Efecto de carga suave para imágenes y otros elementos
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll('.welcome-content p, .call-to-action');
+      elements.forEach((el, index) => {
+        el.style.animationDelay = `${0.3 + (index * 0.1)}s`;
+      });
+    });
+  </script>
 </body>
 </html>
