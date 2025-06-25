@@ -1,5 +1,5 @@
 /* =====================
-   ESTILOS GENERALES
+   RESETEO Y GENERALES
    ===================== */
 * {
   margin: 0;
@@ -15,24 +15,6 @@ body {
   padding-bottom: 60px;
 }
 
-h1, h2 {
-  font-family: 'Cal Sans', sans-serif;
-  color: #ff69b4;
-  margin-bottom: 0.5em;
-}
-
-h1 {
-  font-size: 2.5em;
-  text-align: center;
-  margin-top: 1.2em;
-}
-
-h2 {
-  font-size: 1.8em;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-}
-
 a {
   color: #d63384;
   text-decoration: none;
@@ -44,7 +26,71 @@ a:hover {
 }
 
 /* =====================
-   NAVEGACIÓN
+   CONTENEDOR Y TÍTULO
+   ===================== */
+.contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.titulo-principal {
+  font-family: 'Cal Sans', sans-serif;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ff69b4;
+  margin-bottom: 2rem;
+}
+
+/* =====================
+   TARJETAS DE TEMARIO
+   ===================== */
+.grid-temario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.tarjeta-tema {
+  background-color: #fff0f5;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-tema:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta-tema h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  color: #d63384;
+  margin-bottom: 1rem;
+}
+
+.tarjeta-tema ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tarjeta-tema li {
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-tema a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.tarjeta-tema a:hover {
+  color: #ff1493;
+}
+
+/* =====================
+   MENÚ DE NAVEGACIÓN
    ===================== */
 .menu {
   background-color: #ffe0f0;
@@ -89,34 +135,6 @@ a:hover {
 }
 
 /* =====================
-   CONTENIDO PRINCIPAL
-   ===================== */
-main {
-  max-width: 960px;
-  margin: 2em auto;
-  padding: 0 1em;
-}
-
-.tema-group {
-  margin-bottom: 2em;
-  background-color: #fff;
-  border: 2px solid #ffc0cb;
-  padding: 1.5em;
-  border-radius: 15px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-.tema-group ul {
-  list-style: none;
-  padding-left: 1em;
-}
-
-.tema-group li {
-  margin: 0.5em 0;
-  font-size: 1.05em;
-}
-
-/* =====================
    FOOTER
    ===================== */
 footer {
@@ -136,7 +154,7 @@ footer {
 }
 
 /* =====================
-   RESPONSIVE DESIGN
+   RESPONSIVE
    ===================== */
 @media (max-width: 600px) {
   .menu ul {
@@ -144,15 +162,15 @@ footer {
     align-items: center;
   }
 
-  h1 {
-    font-size: 2em;
+  .titulo-principal {
+    font-size: 2rem;
   }
 
-  h2 {
-    font-size: 1.5em;
+  .tarjeta-tema {
+    padding: 1rem;
   }
 
-  .tema-group {
-    padding: 1em;
+  .menu a {
+    font-size: 1em;
   }
 }
