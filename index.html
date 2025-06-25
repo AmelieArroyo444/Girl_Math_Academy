@@ -3,39 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aprende matemáticas de manera fácil y divertida con Girl Math Academy">
+  <meta name="description" content="Aprende matemáticas fundamentales de manera fácil y divertida con Girl Math Academy">
   <title>Girl Math Academy</title>
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <style>
-    /* Animación de fondo */
-    #bg {
+    /* Estilos base */
+    :root {
+      --rosa-pastel: #ffb6c1;
+      --rosa-neon: #ff69b4;
+      --rosa-oscuro: #db7093;
+      --texto-blanco: #f8f8f8;
+    }
+    
+    body {
+      background-color: #000;
+      color: var(--rosa-pastel);
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Cal Sans', sans-serif;
+      color: var(--rosa-neon);
+      text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+    }
+    
+    a {
+      color: var(--rosa-pastel);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--rosa-neon);
+      text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+    }
+    
+    /* Animación de partículas */
+    #particles-js {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
+      top: 0;
+      left: 0;
       z-index: -1;
-      background: linear-gradient(135deg, #ffcce6 0%, #ff99cc 50%, #ff6699 100%);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      background-color: #000;
     }
     
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    /* Menú de navegación */
+    .menu {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--rosa-oscuro);
     }
     
-    /* Efecto de precarga */
-    body.is-preload * {
-      animation: none !important;
-      transition: none !important;
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
     }
     
-    /* Animación de entrada */
-    .welcome-section {
+    .menu ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 2rem;
+    }
+    
+    .menu li a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      position: relative;
+    }
+    
+    .menu li a::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--rosa-oscuro);
+      color: white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    
+    .menu li a:hover::after {
+      opacity: 1;
+    }
+    
+    .menu li a:hover {
+      background: rgba(255, 182, 193, 0.1);
+    }
+    
+    .menu li a.active {
+      color: var(--rosa-neon);
+      font-weight: bold;
+    }
+    
+    /* Contenido principal */
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 2rem;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s ease forwards 0.5s;
@@ -48,16 +136,24 @@
       }
     }
     
-    /* Estilo para el logo animado */
-    .logo {
+    .welcome-section {
       text-align: center;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      border: 1px solid var(--rosa-oscuro);
+      box-shadow: 0 0 30px rgba(219, 112, 147, 0.2);
+      backdrop-filter: blur(5px);
+    }
+    
+    .logo {
       margin-bottom: 2rem;
     }
     
     .logo i {
       font-size: 5rem;
-      color: #ff6699;
-      animation: pulse 2s ease infinite;
+      color: var(--rosa-neon);
+      animation: pulse 2s ease infinite, glow 3s ease infinite alternate;
     }
     
     @keyframes pulse {
@@ -65,20 +161,118 @@
       50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
+    
+    @keyframes glow {
+      from { text-shadow: 0 0 10px var(--rosa-pastel); }
+      to { text-shadow: 0 0 20px var(--rosa-neon); }
+    }
+    
+    .welcome-content p {
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.5s ease forwards;
+    }
+    
+    .welcome-content p:nth-child(1) { animation-delay: 0.8s; }
+    .welcome-content p:nth-child(2) { animation-delay: 1s; }
+    .welcome-content p:nth-child(3) { animation-delay: 1.2s; }
+    .welcome-content p:nth-child(4) { animation-delay: 1.4s; }
+    .welcome-content p:nth-child(5) { animation-delay: 1.6s; }
+    .welcome-content p:nth-child(6) { animation-delay: 1.8s; }
+    .welcome-content p:nth-child(7) { animation-delay: 2s; }
+    
+    /* Botones */
+    .btn {
+      display: inline-block;
+      background: linear-gradient(45deg, var(--rosa-oscuro), var(--rosa-neon));
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      margin-top: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+    }
+    
+    .btn:active {
+      transform: translateY(1px);
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .btn:hover::before {
+      left: 100%;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--rosa-oscuro);
+    }
+    
+    .footer-content p {
+      margin: 0;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icon {
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      transform: translateY(-5px) scale(1.2);
+      color: var(--rosa-neon);
+    }
+    
+    /* Efecto de precarga */
+    body.is-preload * {
+      animation: none !important;
+      transition: none !important;
+    }
   </style>
 </head>
 <body class="is-preload">
-  <!-- Fondo animado -->
-  <div id="bg"></div>
+  <!-- Fondo de partículas -->
+  <div id="particles-js"></div>
 
   <!-- Menú de Navegación -->
   <nav class="menu">
     <div class="menu-container">
       <ul>
-        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
-        <li><a href="Temario/temario.html"><i class="fas fa-book-open"></i> Temario</a></li>
-        <li><a href="redes.html"><i class="fas fa-heart"></i> Redes</a></li>
-        <li><a href="creadoras.html"><i class="fas fa-envelope"></i> Creadoras</a></li>
+        <li><a href="index.html" class="active" data-tooltip="Inicio"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="Temario/temario.html" data-tooltip="Temario"><i class="fas fa-book-open"></i> Temario</a></li>
+        <li><a href="redes.html" data-tooltip="Redes"><i class="fas fa-heart"></i> Redes</a></li>
+        <li><a href="creadoras.html" data-tooltip="Creadoras"><i class="fas fa-envelope"></i> Creadoras</a></li>
       </ul>
     </div>
   </nav>
@@ -102,7 +296,7 @@
       </div>
       
       <div class="call-to-action">
-        <a href="Temario/temario.html" class="btn">Comenzar a aprender</a>
+        <a href="Temario/temario.html" class="btn" id="main-btn">Comenzar a aprender</a>
       </div>
     </section>
   </main>
@@ -110,24 +304,105 @@
   <!-- Pie de página -->
   <footer>
     <div class="footer-content">
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+      </div>
       <p> © 2025 Girl Math Academy - Amélie Arroyo & Valentina Reyes <3 </p>
     </div>
   </footer>
 
-  <!-- Scripts para la animación -->
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     // Elimina la clase is-preload cuando la página se carga
     window.addEventListener('load', function() {
       document.body.classList.remove('is-preload');
-    });
-    
-    // Opcional: Efecto de carga suave para imágenes y otros elementos
-    document.addEventListener('DOMContentLoaded', function() {
-      const elements = document.querySelectorAll('.welcome-content p, .call-to-action');
-      elements.forEach((el, index) => {
-        el.style.animationDelay = `${0.3 + (index * 0.1)}s`;
+      
+      // Inicializa las partículas
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#ffb6c1" },
+          shape: { 
+            type: ["circle", "triangle"],
+            stroke: { width: 0, color: "#ff69b4" },
+            polygon: { nb_sides: 5 }
+          },
+          opacity: {
+            value: 0.5,
+            random: true,
+            anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#db7093",
+            opacity: 0.4,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "bounce",
+            bounce: true,
+            attract: { enable: true, rotateX: 600, rotateY: 1200 }
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+            resize: true
+          },
+          modes: {
+            repulse: { distance: 100, duration: 0.4 },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
       });
     });
+
+    // Efecto confeti al hacer clic en el botón principal
+    document.getElementById('main-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ffb6c1', '#ff69b4', '#db7093', '#ff9ff3']
+      });
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 1000);
+    });
+
+    // Efecto de escritura en el título
+    const titulo = document.querySelector('h1');
+    const textoOriginal = titulo.textContent;
+    titulo.textContent = '';
+    
+    let i = 0;
+    function typeWriter() {
+      if (i < textoOriginal.length) {
+        titulo.textContent += textoOriginal.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    setTimeout(typeWriter, 1500);
   </script>
 </body>
 </html>
