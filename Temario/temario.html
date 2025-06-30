@@ -259,12 +259,26 @@
   </section>
 </div>
 
-
   <!-- Footer -->
   <footer>
     <div class="footer-content">
       <p>© 2025 Girl Math Academy - Amélie Arroyo & Valentina Reyes <3</p>
     </div>
   </footer>
+ // Efecto de escritura en el título
+    const titulo = document.querySelector('h1');
+    const textoOriginal = titulo.textContent;
+    titulo.textContent = '';
+    
+    let i = 0;
+    function typeWriter() {
+      if (i < textoOriginal.length) {
+        titulo.textContent += textoOriginal.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    setTimeout(typeWriter, 1500);
+  </script>
 </body>
 </html>
