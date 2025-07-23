@@ -1,172 +1,269 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fundamentos: Aritmética</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Temario de Girl Math Academy - Aprende matemáticas de forma divertida">
+  <title>Temario | Girl Math Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --rosa-pastel: #ffb6c1;
+      --rosa-neon: #ff69b4;
+      --rosa-oscuro: #db7093;
+      --texto-blanco: #f8f8f8;
+    }
+
     body {
+      background-color: #000;
+      color: var(--rosa-pastel);
+      font-family: 'Raleway', sans-serif;
       margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background-color: #fff6fc;
-      color: #333;
-      line-height: 1.6;
-      padding: 2rem;
+      padding: 0;
     }
 
-    h1, h2, h3 {
-      color: #b83280;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: 2rem;
+    h1, h2 {
+      font-family: 'Cal Sans', sans-serif;
+      color: var(--texto-blanco);
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
       margin-top: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #b83280;
-      padding-bottom: 0.5rem;
     }
 
-    h3 {
-      font-size: 1.5rem;
-      margin-top: 1.5rem;
+    nav.menu {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--rosa-oscuro);
+    }
+
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu li a {
+      color: var(--rosa-pastel);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .menu li a:hover {
+      color: var(--rosa-neon);
+      text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+    }
+
+    .menu li a.active {
+      font-weight: bold;
+      color: var(--rosa-neon);
+    }
+
+    .grid-temario {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .tarjeta-tema {
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--rosa-oscuro);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.1);
+    }
+
+    .tarjeta-tema h2 {
+      margin-bottom: 1rem;
+    }
+
+    .tarjeta-tema ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tarjeta-tema li {
+      margin-bottom: 0.5rem;
+    }
+
+    .tarjeta-tema a {
+      color: var(--rosa-pastel);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .tarjeta-tema a:hover {
+      color: var(--rosa-neon);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--rosa-oscuro);
+      margin-top: 2rem;
+    }
+
+    footer p {
+      margin: 0;
+      color: var(--rosa-pastel);
     }
 
     .section {
-      margin-bottom: 2.5rem;
-      padding: 1rem;
-      background-color: #ffeaf4;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(184, 50, 128, 0.15);
-    }
-
-    .emoji {
-      font-size: 1.4rem;
-      margin-right: 0.3rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    code {
-      background-color: #fff;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: monospace;
-      color: #b83280;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
     }
 
     .example {
-      background: #fff;
-      border-left: 4px solid #b83280;
-      padding: 0.8rem 1rem;
+      background: rgba(255, 182, 193, 0.1);
+      border-left: 4px solid var(--rosa-neon);
+      padding: 1rem;
       margin-top: 1rem;
-      border-radius: 8px;
       font-style: italic;
+      color: var(--texto-blanco);
     }
 
-    .girly {
-      background: #fdf0f5;
-      padding: 0.8rem 1rem;
-      border-left: 4px solid #ff66b2;
-      border-radius: 8px;
-      font-style: italic;
-      margin-top: 0.8rem;
+    .tabla-matematica {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .tabla-matematica th,
+    .tabla-matematica td {
+      border: 1px solid var(--rosa-pastel);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .tabla-matematica th {
+      background-color: var(--rosa-oscuro);
+      color: white;
     }
 
     .pink-title {
-      color: #ff66b2;
+      color: var(--rosa-neon);
       font-weight: bold;
     }
   </style>
 </head>
 <body>
 
- <h1>🔢 Fundamentos: Aritmética</h1>
+  <!-- Menú de Navegación -->
+  <nav class="menu">
+    <div class="menu-container">
+      <ul>
+        <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="temario.html" class="active"><i class="fas fa-book-open"></i> Temario</a></li>
+        <li><a href="../redes.html"><i class="fas fa-heart"></i> Redes</a></li>
+        <li><a href="../creadoras.html"><i class="fas fa-envelope"></i> Creadoras</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<div class="section">
-  <h2>🌸 ¿Qué es la Aritmética?</h2>
-  <p>La aritmética es la parte más básica y dulce de las matemáticas. Es como el corazón de todo: nos enseña a trabajar con números y a usar operaciones sencillas como sumar, restar, multiplicar y dividir.</p>
-  <p>Es como tener una mini caja de herramientas para resolver problemas del día a día 💼💡</p>
-</div>
+  <h1>🔢 Fundamentos: Aritmética</h1>
 
-<div class="section">
-  <h2>🌷 ¿Para qué sirve?</h2>
-  <ul>
-    <li>🧁 Contar y organizar cosas</li>
-    <li>💸 Manejar tu dinero o hacer presupuestos</li>
-    <li>📏 Medir ingredientes en una receta</li>
-    <li>🎁 Dividir dulces entre amigas (¡muy importante!)</li>
-  </ul>
-  <p>También es la base de otras ramas como el álgebra, la estadística o incluso las ciencias 🧪✨</p>
-</div>
+  <div class="section">
+    <h2>🌸 ¿Qué es la Aritmética?</h2>
+    <p>La aritmética es la parte más básica y dulce de las matemáticas. Es como el corazón de todo: nos enseña a trabajar con números y a usar operaciones sencillas como sumar, restar, multiplicar y dividir.</p>
+    <p>Es como tener una mini caja de herramientas para resolver problemas del día a día 💼💡</p>
+  </div>
 
-<div class="section">
-  <h2>🍓 Las 4 Operaciones Mágicas</h2>
-  <table class="tabla-matematica">
-    <thead>
-      <tr>
-        <th>🌟 Operación</th>
-        <th>💡 ¿Para qué sirve?</th>
-        <th>🧠 Ejemplo con estilo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>➕ <strong>Suma</strong></td>
-        <td>Combina cantidades para obtener un total ✨</td>
-        <td>3 🍓 + 2 🍓 = 5 🍓</td>
-      </tr>
-      <tr>
-        <td>➖ <strong>Resta</strong></td>
-        <td>Quita una parte de otra cantidad 🧺</td>
-        <td>8 🌸 − 2 🌸 = 6 🌸</td>
-      </tr>
-      <tr>
-        <td>✖️ <strong>Multiplicación</strong></td>
-        <td>Es como una suma repetida, súper eficiente 💅</td>
-        <td>5 🎀 × 3 = 15 🎀</td>
-      </tr>
-      <tr>
-        <td>➗ <strong>División</strong></td>
-        <td>Reparte algo en partes iguales 🍰</td>
-        <td>26 🍬 ÷ 6 = 4 por persona y sobran 2 🍬</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="section">
+    <h2>🌷 ¿Para qué sirve?</h2>
+    <ul>
+      <li>🧁 Contar y organizar cosas</li>
+      <li>💸 Manejar tu dinero o hacer presupuestos</li>
+      <li>📏 Medir ingredientes en una receta</li>
+      <li>🎁 Dividir dulces entre amigas (¡muy importante!)</li>
+    </ul>
+    <p>También es la base de otras ramas como el álgebra, la estadística o incluso las ciencias 🧪✨</p>
+  </div>
 
-<div class="section">
-  <h2>💕 ¿Qué más incluye la Aritmética?</h2>
-  <ul>
-    <li>🌼 <strong>Fracciones</strong> (½, ¾): dividir un todo en partes</li>
-    <li>💧 <strong>Decimales</strong> (0.5, 3.14): otra forma de mostrar partes</li>
-    <li>🎀 <strong>Porcentajes</strong> (50%, 100%): expresar proporciones</li>
-    <li>⚡️ <strong>Potencias y raíces</strong> (2³, √9): formas divertidas de multiplicar o deshacer multiplicaciones</li>
-  </ul>
-</div>
+  <div class="section">
+    <h2>🍓 Las 4 Operaciones Mágicas</h2>
+    <table class="tabla-matematica">
+      <thead>
+        <tr>
+          <th>🌟 Operación</th>
+          <th>💡 ¿Para qué sirve?</th>
+          <th>🧠 Ejemplo con estilo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>➕ <strong>Suma</strong></td>
+          <td>Combina cantidades para obtener un total ✨</td>
+          <td>3 🍓 + 2 🍓 = 5 🍓</td>
+        </tr>
+        <tr>
+          <td>➖ <strong>Resta</strong></td>
+          <td>Quita una parte de otra cantidad 🧺</td>
+          <td>8 🌸 − 2 🌸 = 6 🌸</td>
+        </tr>
+        <tr>
+          <td>✖️ <strong>Multiplicación</strong></td>
+          <td>Es como una suma repetida, súper eficiente 💅</td>
+          <td>5 🎀 × 3 = 15 🎀</td>
+        </tr>
+        <tr>
+          <td>➗ <strong>División</strong></td>
+          <td>Reparte algo en partes iguales 🍰</td>
+          <td>26 🍬 ÷ 6 = 4 por persona y sobran 2 🍬</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<div class="section">
-  <h2>🌈 ¿Por qué es importante?</h2>
-  <ul>
-    <li>💗 Porque la usamos todos los días sin darnos cuenta</li>
-    <li>💗 Porque ayuda a que tu mente sea más lógica y ordenada</li>
-    <li>💗 Porque es la base de mil cosas más increíbles que aprenderás después</li>
-  </ul>
-  <p>Es como el <span class="pink-title">glossy lip balm</span> de las matemáticas: lo usas todo el tiempo, aunque no lo notes ✨💄</p>
-</div>
+  <div class="section">
+    <h2>💕 ¿Qué más incluye la Aritmética?</h2>
+    <ul>
+      <li>🌼 <strong>Fracciones</strong> (½, ¾): dividir un todo en partes</li>
+      <li>💧 <strong>Decimales</strong> (0.5, 3.14): otra forma de mostrar partes</li>
+      <li>🎀 <strong>Porcentajes</strong> (50%, 100%): expresar proporciones</li>
+      <li>⚡️ <strong>Potencias y raíces</strong> (2³, √9): formas divertidas de multiplicar o deshacer multiplicaciones</li>
+    </ul>
+  </div>
 
-<div class="section">
-  <h2>💡 En resumen</h2>
-  <p>La aritmética es la base de todo en matemáticas. Nos ayuda a pensar con claridad, a resolver problemas reales y a tener una mente ágil.</p>
-  <p>Saber aritmética es como tener una súper herramienta en tu cabeza. Y sí, también te hace ver más brillante y segura de ti 💼🧠💖</p>
-  <div class="example">📌 Desde dividir una pizza con tus amigas hasta entender cómo funciona el algoritmo de TikTok que decide qué video enseñarte hoy 🍕📱</div>
-</div>
+  <div class="section">
+    <h2>🌈 ¿Por qué es importante?</h2>
+    <ul>
+      <li>💗 Porque la usamos todos los días sin darnos cuenta</li>
+      <li>💗 Porque ayuda a que tu mente sea más lógica y ordenada</li>
+      <li>💗 Porque es la base de mil cosas más increíbles que aprenderás después</li>
+    </ul>
+    <p>Es como el <span class="pink-title">glossy lip balm</span> de las matemáticas: lo usas todo el tiempo, aunque no lo notes ✨💄</p>
+  </div>
+
+  <div class="section">
+    <h2>💡 En resumen</h2>
+    <p>La aritmética es la base de todo en matemáticas. Nos ayuda a pensar con claridad, a resolver problemas reales y a tener una mente ágil.</p>
+    <p>Saber aritmética es como tener una súper herramienta en tu cabeza. Y sí, también te hace ver más brillante y segura de ti 💼🧠💖</p>
+    <div class="example">📌 Desde dividir una pizza con tus amigas hasta entender cómo funciona el algoritmo de TikTok que decide qué video enseñarte hoy 🍕📱</div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Girl Math Academy 💖</p>
+  </footer>
 </body>
 </html>
+
